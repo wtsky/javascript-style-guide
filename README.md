@@ -816,7 +816,7 @@
         ...
     }
 
-    var f = function (a, b, c) {
+    var f = function(a, b, c) {
         ...
     };
 
@@ -826,7 +826,7 @@
         ...
     }
 
-    var f = function( a, b, c ) {
+    var f = function ( a, b, c ) {
         ...
     };
     ```
