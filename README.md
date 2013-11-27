@@ -294,7 +294,7 @@
 
 ## <a name='functions'>Functions</a>
 
-  - Function expressions:
+  - [Function expressions](#nfe-demystified):
 
     ```javascript
     // anonymous function expression
@@ -347,8 +347,28 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+  - Avoid recursion, and use iteration instead. JavaScript does not ([yet](http://bbenvie.com/articles/2013-01-06/JavaScript-ES6-Has-Tail-Call-Optimization)) have proper tail-calls, so every call adds a frame to the stack, and JavaScript engines allocate a limited number of frames for execution.
 
+    ```javascript
+    // bad
+    function fact ( n, total ) {
+        return n > 0 ? fact(n - 1, n * total) : 1;
+    }
+    fact(40000, 1) // RangeError: Maximum call stack size exceeded (in Chrome)
+
+    // better
+    function fact ( n ) {
+        var total = 1;
+        while ( n ) {
+            total = total * n;
+            n = n - 1;
+        }
+        return total;
+    }
+    fact(40000) // Infinity (in Chrome; not correct, but that's because of [JavaScript's MaxInt](http://ecma262-5.com/ELS5_HTML.htm#Section_8.5))
+    ```
+
+    **[[⬆]](#TOC)**
 
 
 ## <a name='properties'>Properties</a>
@@ -1447,6 +1467,7 @@
 
   - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
+  - [Named function expressions demystified](http://kangax.github.io/nfe/) - Jurly "kangax" Zaytsev (<a name='nfe-demystified'>*</a>)
 
 **Books**
 
