@@ -361,7 +361,7 @@
         var total = 1;
         while ( n ) {
             total = total * n;
-            n = n - 1;
+            --n;
         }
         return total;
     }
