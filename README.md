@@ -72,38 +72,39 @@ REI JavaScript Style Guide
 <a name='types'>Types</a>
 -------------------------
 
-  - **Primitives**: When you access a primitive type you work directly on its value
+**Primitives:** When you access a primitive type you work directly on its value
 
-    + `string`
-    + `number`
-    + `boolean`
-    + `null`
-    + `undefined`
+- `string`
+- `number`
+- `boolean`
+- `null`
+- `undefined`
 
-    ```javascript
-    var foo = 1;
-    var bar = foo;
+```javascript
+var foo = 1;
+var bar = foo;
 
-    bar = 9;
+bar = 9;
 
-    console.log(foo, bar); // => 1, 9
-    ```
-  - **Complex**: When you access a complex type you work on a reference to its value
+console.log(foo, bar); // => 1, 9
+```
 
-    + `object`
-    + `array`
-    + `function`
+**Complex:** When you access a complex type you work on a reference to its value
 
-    ```javascript
-    var foo = [1, 2];
-    var bar = foo;
+- `object`
+- `array`
+- `function`
 
-    bar[0] = 9;
+```javascript
+var foo = [1, 2];
+var bar = foo;
 
-    console.log(foo[0], bar[0]); // => 9, 9
-    ```
+bar[0] = 9;
 
-    **[[↑]](#TOC)**
+console.log(foo[0], bar[0]); // => 9, 9
+```
+
+[[↑ back to top]](#TOC)
 
 
 <a name='objects'>Objects</a>
@@ -153,7 +154,7 @@ REI JavaScript Style Guide
         type: 'alien'
     };
     ```
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='arrays'>Arrays</a>
@@ -207,7 +208,7 @@ REI JavaScript Style Guide
     }
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='strings'>Strings</a>
@@ -298,7 +299,7 @@ REI JavaScript Style Guide
     }
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='functions'>Functions</a>
@@ -357,7 +358,7 @@ REI JavaScript Style Guide
     }
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='properties'>Properties</a>
@@ -393,7 +394,7 @@ REI JavaScript Style Guide
     var isJedi = getProp('jedi');
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='variables'>Variables</a>
@@ -505,7 +506,7 @@ REI JavaScript Style Guide
     }
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='hoisting'>Hoisting</a>
@@ -595,7 +596,7 @@ REI JavaScript Style Guide
 
   - For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](//www.adequatelygood.com/)
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='conditionals'>Conditional Expressions & Equality</a>
@@ -644,7 +645,7 @@ REI JavaScript Style Guide
 
   - For more information see [Truth Equality and JavaScript](//javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='blocks'>Blocks</a>
@@ -674,7 +675,7 @@ REI JavaScript Style Guide
     }
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='comments'>Comments</a>
@@ -768,7 +769,7 @@ REI JavaScript Style Guide
     }
   ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='whitespace'>Whitespace</a>
@@ -894,7 +895,7 @@ REI JavaScript Style Guide
             .call(tron.led);
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='commas'>Commas</a>
@@ -948,7 +949,7 @@ REI JavaScript Style Guide
     ];
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='semicolons'>Semicolons</a>
@@ -976,7 +977,7 @@ REI JavaScript Style Guide
     })();
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='type-coercion'>Type Casting & Coercion</a>
@@ -1053,7 +1054,7 @@ REI JavaScript Style Guide
     var hasAge = !!age;
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='naming-conventions'>Naming Conventions</a>
@@ -1167,7 +1168,7 @@ REI JavaScript Style Guide
     };
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='accessors'>Accessors</a>
@@ -1222,7 +1223,7 @@ REI JavaScript Style Guide
     };
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='constructors'>Constructors</a>
@@ -1308,7 +1309,7 @@ REI JavaScript Style Guide
     };
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='events'>Events</a>
@@ -1340,7 +1341,7 @@ REI JavaScript Style Guide
     });
     ```
 
-  **[[↑]](#TOC)**
+  [[↑ back to top]](#TOC)
 
 
 <a name='modules'>Modules</a>
@@ -1372,7 +1373,7 @@ REI JavaScript Style Guide
     }(this);
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='jquery'>jQuery</a>
@@ -1435,7 +1436,7 @@ REI JavaScript Style Guide
     $sidebar.find('ul');
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='es5'>ECMAScript 5 Compatibility</a>
@@ -1443,7 +1444,7 @@ REI JavaScript Style Guide
 
   - Refer to [Kangax](//twitter.com/kangax/)'s ES5 [compatibility table](//kangax.github.com/es5-compat-table/)
 
-  **[[↑]](#TOC)**
+  [[↑ back to top]](#TOC)
 
 
 <a name='testing'>Testing</a>
@@ -1457,7 +1458,7 @@ REI JavaScript Style Guide
     }
     ```
 
-    **[[↑]](#TOC)**
+    [[↑ back to top]](#TOC)
 
 
 <a name='performance'>Performance</a>
@@ -1473,7 +1474,7 @@ REI JavaScript Style Guide
   - [Array construction](//jsperf.com/sized-array-creation)
   - Loading...
 
-  **[[↑]](#TOC)**
+  [[↑ back to top]](#TOC)
 
 
 <a name='resources'>Resources</a>
@@ -1529,7 +1530,7 @@ REI JavaScript Style Guide
   - [Dustin Diaz](//dustindiaz.com/)
   - [nettuts](//net.tutsplus.com/?s=javascript)
 
-  **[[↑]](#TOC)**
+  [[↑ back to top]](#TOC)
 
 
 <a name='in-the-wild'>In the Wild</a>
@@ -1613,4 +1614,4 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[[↑]](#TOC)**
+[[↑ back to top]](#TOC)
