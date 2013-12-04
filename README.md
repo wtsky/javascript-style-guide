@@ -46,7 +46,7 @@ REI JavaScript Style Guide
 <a name='inspiration'>Inspiration</a>
 -------------------------------------
 
-    - **PEP-020**: [The Zen of Python](http://www.python.org/dev/peps/pep-0020/)
+    - **PEP-020**: [The Zen of Python](//www.python.org/dev/peps/pep-0020/)
 
     ```
     Beautiful is better than ugly.
@@ -121,7 +121,7 @@ REI JavaScript Style Guide
     var item = {};
     ```
 
-  - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61)
+  - Don't use [reserved words](//es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](//github.com/airbnb/javascript/issues/61)
 
     ```javascript
     // bad
@@ -184,7 +184,7 @@ REI JavaScript Style Guide
     someStack.push('abracadabra');
     ```
 
-  - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+  - When you need to copy an array use Array#slice. [jsPerf](//jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
     var len = items.length;
@@ -232,7 +232,7 @@ REI JavaScript Style Guide
     ```
 
   - Strings longer than 80 characters should be written across multiple lines using string concatenation.
-  - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
+  - Note: If overused, long strings with concatenation could impact performance. [jsPerf](//jsperf.com/ya-string-concat) & [Discussion](//github.com/airbnb/javascript/issues/40)
 
     ```javascript
     // bad
@@ -256,7 +256,7 @@ REI JavaScript Style Guide
         'fast.';
     ```
 
-  - When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](//jsperf.com/string-vs-array-concat/2).
 
     ```javascript
     var items;
@@ -326,7 +326,7 @@ REI JavaScript Style Guide
     ```
 
   - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
-  - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](//www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // bad
@@ -595,7 +595,7 @@ REI JavaScript Style Guide
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
+  - For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](//www.adequatelygood.com/)
 
     **[[⬆]](#TOC)**
 
@@ -644,7 +644,7 @@ REI JavaScript Style Guide
     }
     ```
 
-  - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
+  - For more information see [Truth Equality and JavaScript](//javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
 
     **[[⬆]](#TOC)**
 
@@ -922,7 +922,7 @@ REI JavaScript Style Guide
     };
     ```
 
-  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
+  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](//es5.github.io/#D)):
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
@@ -1027,8 +1027,8 @@ REI JavaScript Style Guide
     var val = parseInt(inputValue, 10);
     ```
 
-  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
-  - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109)
+  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](//jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
+  - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](//es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](//es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](//github.com/airbnb/javascript/issues/109)
 
     ```javascript
     // good
@@ -1348,7 +1348,7 @@ REI JavaScript Style Guide
 <a name='modules'>Modules</a>
 -----------------------------
 
-  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](//github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
   - Add a method called noConflict() that sets the exported module to the previous version and returns this one.
   - Always declare `'use strict';` at the top of the module.
@@ -1417,7 +1417,7 @@ REI JavaScript Style Guide
     }
     ```
 
-  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](//jsperf.com/jquery-find-vs-context-sel/16)
   - Use `find` with scoped jQuery object queries.
 
     ```javascript
@@ -1443,7 +1443,7 @@ REI JavaScript Style Guide
 <a name='es5'>ECMAScript 5 Compatibility</a>
 --------------------------------------------
 
-  - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
+  - Refer to [Kangax](//twitter.com/kangax/)'s ES5 [compatibility table](//kangax.github.com/es5-compat-table/)
 
   **[[⬆]](#TOC)**
 
@@ -1465,14 +1465,14 @@ REI JavaScript Style Guide
 <a name='performance'>Performance</a>
 -------------------------------------
 
-  - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
-  - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
-  - [Try/Catch Cost In a Loop](http://jsperf.com/try-catch-in-loop-cost)
-  - [Bang Function](http://jsperf.com/bang-function)
-  - [jQuery Find vs Context, Selector](http://jsperf.com/jquery-find-vs-context-sel/13)
-  - [innerHTML vs textContent for script text](http://jsperf.com/innerhtml-vs-textcontent-for-script-text)
-  - [Long String Concatenation](http://jsperf.com/ya-string-concat)
-  - [Array construction](http://jsperf.com/sized-array-creation)
+  - [On Layout & Web Performance](//kellegous.com/j/2013/01/26/layout-performance/)
+  - [String vs Array Concat](//jsperf.com/string-vs-array-concat/2)
+  - [Try/Catch Cost In a Loop](//jsperf.com/try-catch-in-loop-cost)
+  - [Bang Function](//jsperf.com/bang-function)
+  - [jQuery Find vs Context, Selector](//jsperf.com/jquery-find-vs-context-sel/13)
+  - [innerHTML vs textContent for script text](//jsperf.com/innerhtml-vs-textcontent-for-script-text)
+  - [Long String Concatenation](//jsperf.com/ya-string-concat)
+  - [Array construction](//jsperf.com/sized-array-creation)
   - Loading...
 
   **[[⬆]](#TOC)**
@@ -1483,53 +1483,53 @@ REI JavaScript Style Guide
 
 **Read This**
 
-  - [Annotated ECMAScript 5.1](http://es5.github.com/)
+  - [Annotated ECMAScript 5.1](//es5.github.com/)
 
 **Other Styleguides**
 
-  - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
-  - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
-  - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/)
+  - [Google JavaScript Style Guide](//google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+  - [jQuery Core Style Guidelines](//docs.jquery.com/JQuery_Core_Style_Guidelines)
+  - [Principles of Writing Consistent, Idiomatic JavaScript](//github.com/rwldrn/idiomatic.js/)
 
 **Other Styles**
 
-  - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
-  - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52)
-  - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript)
+  - [Naming this in nested functions](//gist.github.com/4135065) - Christian Johansen
+  - [Conditional Callbacks](//github.com/airbnb/javascript/issues/52)
+  - [Popular JavaScript Coding Conventions on Github](//sideeffect.kr/popularconvention/#javascript)
 
 **Further Reading**
 
-  - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
-  - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
+  - [Understanding JavaScript Closures](//javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
+  - [Basic JavaScript for the impatient programmer](//www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
 
 **Books**
 
-  - [JavaScript: The Good Parts](http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
-  - [JavaScript Patterns](http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
-  - [Pro JavaScript Design Patterns](http://www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X)  - Ross Harmes and Dustin Diaz
-  - [High Performance Web Sites: Essential Knowledge for Front-End Engineers](http://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309) - Steve Souders
-  - [Maintainable JavaScript](http://www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680) - Nicholas C. Zakas
-  - [JavaScript Web Applications](http://www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X) - Alex MacCaw
-  - [Pro JavaScript Techniques](http://www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273) - John Resig
-  - [Smashing Node.js: JavaScript Everywhere](http://www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595) - Guillermo Rauch
-  - [Secrets of the JavaScript Ninja](http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault
-  - [Human JavaScript](http://humanjavascript.com/) - Henrik Joreteg
-  - [Superhero.js](http://superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
-  - [JSBooks](http://jsbooks.revolunet.com/)
+  - [JavaScript: The Good Parts](//www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
+  - [JavaScript Patterns](//www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
+  - [Pro JavaScript Design Patterns](//www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X)  - Ross Harmes and Dustin Diaz
+  - [High Performance Web Sites: Essential Knowledge for Front-End Engineers](//www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309) - Steve Souders
+  - [Maintainable JavaScript](//www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680) - Nicholas C. Zakas
+  - [JavaScript Web Applications](//www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X) - Alex MacCaw
+  - [Pro JavaScript Techniques](//www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273) - John Resig
+  - [Smashing Node.js: JavaScript Everywhere](//www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595) - Guillermo Rauch
+  - [Secrets of the JavaScript Ninja](//www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault
+  - [Human JavaScript](//humanjavascript.com/) - Henrik Joreteg
+  - [Superhero.js](//superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
+  - [JSBooks](//jsbooks.revolunet.com/)
 
 **Blogs**
 
-  - [DailyJS](http://dailyjs.com/)
-  - [JavaScript Weekly](http://javascriptweekly.com/)
-  - [JavaScript, JavaScript...](http://javascriptweblog.wordpress.com/)
-  - [Bocoup Weblog](http://weblog.bocoup.com/)
-  - [Adequately Good](http://www.adequatelygood.com/)
-  - [NCZOnline](http://www.nczonline.net/)
-  - [Perfection Kills](http://perfectionkills.com/)
-  - [Ben Alman](http://benalman.com/)
-  - [Dmitry Baranovskiy](http://dmitry.baranovskiy.com/)
-  - [Dustin Diaz](http://dustindiaz.com/)
-  - [nettuts](http://net.tutsplus.com/?s=javascript)
+  - [DailyJS](//dailyjs.com/)
+  - [JavaScript Weekly](//javascriptweekly.com/)
+  - [JavaScript, JavaScript...](//javascriptweblog.wordpress.com/)
+  - [Bocoup Weblog](//weblog.bocoup.com/)
+  - [Adequately Good](//www.adequatelygood.com/)
+  - [NCZOnline](//www.nczonline.net/)
+  - [Perfection Kills](//perfectionkills.com/)
+  - [Ben Alman](//benalman.com/)
+  - [Dmitry Baranovskiy](//dmitry.baranovskiy.com/)
+  - [Dustin Diaz](//dustindiaz.com/)
+  - [nettuts](//net.tutsplus.com/?s=javascript)
 
   **[[⬆]](#TOC)**
 
@@ -1539,27 +1539,27 @@ REI JavaScript Style Guide
 
   This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
-  - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
-  - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
-  - **American Insitutes for Research**: [AIRAST/javascript](https://github.com/AIRAST/javascript)
-  - **Compass Learning**: [compasslearning/javascript-style-guide](https://github.com/compasslearning/javascript-style-guide)
-  - **ExactTarget**: [ExactTarget/javascript](https://github.com/ExactTarget/javascript)
-  - **Gawker Media**: [gawkermedia/javascript](https://github.com/gawkermedia/javascript)
-  - **GeneralElectric**: [GeneralElectric/javascript](https://github.com/GeneralElectric/javascript)
-  - **GoodData**: [gooddata/gdc-js-style](https://github.com/gooddata/gdc-js-style)
-  - **Grooveshark**: [grooveshark/javascript](https://github.com/grooveshark/javascript)
-  - **How About We**: [howaboutwe/javascript](https://github.com/howaboutwe/javascript)
-  - **Mighty Spring**: [mightyspring/javascript](https://github.com/mightyspring/javascript)
-  - **MinnPost**: [MinnPost/javascript](https://github.com/MinnPost/javascript)
-  - **ModCloth**: [modcloth/javascript](https://github.com/modcloth/javascript)
-  - **National Geographic**: [natgeo/javascript](https://github.com/natgeo/javascript)
-  - **National Park Service**: [nationalparkservice/javascript](https://github.com/nationalparkservice/javascript)
-  - **Razorfish**: [razorfish/javascript-style-guide](https://github.com/razorfish/javascript-style-guide)
-  - **REI**: [reidev/javascript](https://github.com/reidev/javascript)
-  - **Shutterfly**: [shutterfly/javascript](https://github.com/shutterfly/javascript)
-  - **Userify**: [userify/javascript](https://github.com/userify/javascript)
-  - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
-  - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
+  - **Aan Zee**: [AanZee/javascript](//github.com/AanZee/javascript)
+  - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
+  - **American Insitutes for Research**: [AIRAST/javascript](//github.com/AIRAST/javascript)
+  - **Compass Learning**: [compasslearning/javascript-style-guide](//github.com/compasslearning/javascript-style-guide)
+  - **ExactTarget**: [ExactTarget/javascript](//github.com/ExactTarget/javascript)
+  - **Gawker Media**: [gawkermedia/javascript](//github.com/gawkermedia/javascript)
+  - **GeneralElectric**: [GeneralElectric/javascript](//github.com/GeneralElectric/javascript)
+  - **GoodData**: [gooddata/gdc-js-style](//github.com/gooddata/gdc-js-style)
+  - **Grooveshark**: [grooveshark/javascript](//github.com/grooveshark/javascript)
+  - **How About We**: [howaboutwe/javascript](//github.com/howaboutwe/javascript)
+  - **Mighty Spring**: [mightyspring/javascript](//github.com/mightyspring/javascript)
+  - **MinnPost**: [MinnPost/javascript](//github.com/MinnPost/javascript)
+  - **ModCloth**: [modcloth/javascript](//github.com/modcloth/javascript)
+  - **National Geographic**: [natgeo/javascript](//github.com/natgeo/javascript)
+  - **National Park Service**: [nationalparkservice/javascript](//github.com/nationalparkservice/javascript)
+  - **Razorfish**: [razorfish/javascript-style-guide](//github.com/razorfish/javascript-style-guide)
+  - **REI**: [reidev/javascript](//github.com/reidev/javascript)
+  - **Shutterfly**: [shutterfly/javascript](//github.com/shutterfly/javascript)
+  - **Userify**: [userify/javascript](//github.com/userify/javascript)
+  - **Zillow**: [zillow/javascript](//github.com/zillow/javascript)
+  - **ZocDoc**: [ZocDoc/javascript](//github.com/ZocDoc/javascript)
 
 
 <a name='translation'>Translation</a>
@@ -1567,26 +1567,26 @@ REI JavaScript Style Guide
 
   This style guide is also available in other languages:
 
-  - :de: **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - :jp: **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
-  - :br: **Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - :cn: **Chinese**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
-  - :es: **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
-  - :kr: **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
-  - :fr: **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
-  - :ru: **Russian**: [sbezludny/javascript-style-guide](https://github.com/sbezludny/javascript-style-guide)
+  - :de: **German**: [timofurrer/javascript-style-guide](//github.com/timofurrer/javascript-style-guide)
+  - :jp: **Japanese**: [mitsuruog/javacript-style-guide](//github.com/mitsuruog/javacript-style-guide)
+  - :br: **Portuguese**: [armoucar/javascript-style-guide](//github.com/armoucar/javascript-style-guide)
+  - :cn: **Chinese**: [adamlu/javascript-style-guide](//github.com/adamlu/javascript-style-guide)
+  - :es: **Spanish**: [paolocarrasco/javascript-style-guide](//github.com/paolocarrasco/javascript-style-guide)
+  - :kr: **Korean**: [tipjs/javascript-style-guide](//github.com/tipjs/javascript-style-guide)
+  - :fr: **French**: [nmussy/javascript-style-guide](//github.com/nmussy/javascript-style-guide)
+  - :ru: **Russian**: [sbezludny/javascript-style-guide](//github.com/sbezludny/javascript-style-guide)
 
 
 <a name='guide-guide'>The JavaScript Style Guide Guide</a>
 ----------------------------------------------------------
 
-  - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
+  - [Reference](//github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
 
 <a name='authors'>Contributors</a>
 ----------------------------------
 
-  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
+  - [View Contributors](//github.com/airbnb/javascript/graphs/contributors)
 
 
 <a name='license'>License</a>
