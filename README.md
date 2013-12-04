@@ -1,72 +1,78 @@
-# REI JavaScript Style Guide() {
+REI JavaScript Style Guide
+==========================
 
-*A mostly reasonable approach to JavaScript, lightly modified from [Airbnb's excellent style guide][airbnb-js-styleguide]*
+*A mostly reasonable approach to JavaScript, lightly modified from
+[Airbnb's excellent style guide][airbnb-js-styleguide]*
 
 [airbnb-js-styleguide]: //github.com/airbnb/javascript
 
-## <a name='TOC'>Table of Contents</a>
 
-  1. [Inspiration, or: Why?](#inspiration)
-  1. [Types](#types)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
-  1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Properties](#properties)
-  1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
-  1. [Conditional Expressions & Equality](#conditionals)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-coercion)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Constructors](#constructors)
-  1. [Events](#events)
-  1. [Modules](#modules)
-  1. [jQuery](#jquery)
-  1. [ES5 Compatibility](#es5)
-  1. [Testing](#testing)
-  1. [Performance](#performance)
-  1. [Resources](#resources)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#guide-guide)
-  1. [Contributors](#contributors)
-  1. [License](#license)
+<a name='TOC'>Table of Contents</a>
+-----------------------------------
 
-
-## <a name='inspiration'>Inspiration</a>
-
-  - **PEP-020**: [The Zen of Python](http://www.python.org/dev/peps/pep-0020/)
-
-  ```
-  Beautiful is better than ugly.
-  Explicit is better than implicit.
-  Simple is better than complex.
-  Complex is better than complicated.
-  Flat is better than nested.
-  Sparse is better than dense.
-  Readability counts.
-  Special cases aren't special enough to break the rules.
-  Although practicality beats purity.
-  Errors should never pass silently.
-  Unless explicitly silenced.
-  In the face of ambiguity, refuse the temptation to guess.
-  There should be one-- and preferably only one --obvious way to do it.
-  Although that way may not be obvious at first unless you're Dutch.
-  Now is better than never.
-  Although never is often better than *right* now.
-  If the implementation is hard to explain, it's a bad idea.
-  If the implementation is easy to explain, it may be a good idea.
-  Namespaces are one honking great idea -- let's do more of those!
-  ```
+    1. [Inspiration, or: Why?](#inspiration)
+    1. [Types](#types)
+    1. [Objects](#objects)
+    1. [Arrays](#arrays)
+    1. [Strings](#strings)
+    1. [Functions](#functions)
+    1. [Properties](#properties)
+    1. [Variables](#variables)
+    1. [Hoisting](#hoisting)
+    1. [Conditional Expressions & Equality](#conditionals)
+    1. [Blocks](#blocks)
+    1. [Comments](#comments)
+    1. [Whitespace](#whitespace)
+    1. [Commas](#commas)
+    1. [Semicolons](#semicolons)
+    1. [Type Casting & Coercion](#type-coercion)
+    1. [Naming Conventions](#naming-conventions)
+    1. [Accessors](#accessors)
+    1. [Constructors](#constructors)
+    1. [Events](#events)
+    1. [Modules](#modules)
+    1. [jQuery](#jquery)
+    1. [ES5 Compatibility](#es5)
+    1. [Testing](#testing)
+    1. [Performance](#performance)
+    1. [Resources](#resources)
+    1. [In the Wild](#in-the-wild)
+    1. [Translation](#translation)
+    1. [The JavaScript Style Guide Guide](#guide-guide)
+    1. [Contributors](#contributors)
+    1. [License](#license)
 
 
-## <a name='types'>Types</a>
+<a name='inspiration'>Inspiration</a>
+-------------------------------------
+
+    - **PEP-020**: [The Zen of Python](http://www.python.org/dev/peps/pep-0020/)
+
+    ```
+    Beautiful is better than ugly.
+    Explicit is better than implicit.
+    Simple is better than complex.
+    Complex is better than complicated.
+    Flat is better than nested.
+    Sparse is better than dense.
+    Readability counts.
+    Special cases aren't special enough to break the rules.
+    Although practicality beats purity.
+    Errors should never pass silently.
+    Unless explicitly silenced.
+    In the face of ambiguity, refuse the temptation to guess.
+    There should be one-- and preferably only one --obvious way to do it.
+    Although that way may not be obvious at first unless you're Dutch.
+    Now is better than never.
+    Although never is often better than *right* now.
+    If the implementation is hard to explain, it's a bad idea.
+    If the implementation is easy to explain, it may be a good idea.
+    Namespaces are one honking great idea -- let's do more of those!
+    ```
+
+
+<a name='types'>Types</a>
+-------------------------
 
   - **Primitives**: When you access a primitive type you work directly on its value
 
@@ -101,7 +107,9 @@
 
     **[[⬆]](#TOC)**
 
-## <a name='objects'>Objects</a>
+
+<a name='objects'>Objects</a>
+-----------------------------
 
   - Use the literal syntax for object creation.
 
@@ -149,7 +157,9 @@
     ```
     **[[⬆]](#TOC)**
 
-## <a name='arrays'>Arrays</a>
+
+<a name='arrays'>Arrays</a>
+---------------------------
 
   - Use the literal syntax for array creation
 
@@ -202,7 +212,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='strings'>Strings</a>
+<a name='strings'>Strings</a>
+-----------------------------
 
   - Use single quotes `''` for strings
 
@@ -292,7 +303,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='functions'>Functions</a>
+<a name='functions'>Functions</a>
+---------------------------------
 
   - Function expressions:
 
@@ -350,8 +362,8 @@
     **[[⬆]](#TOC)**
 
 
-
-## <a name='properties'>Properties</a>
+<a name='properties'>Properties</a>
+-----------------------------------
 
   - Use dot notation when accessing properties.
 
@@ -386,7 +398,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='variables'>Variables</a>
+<a name='variables'>Variables</a>
+---------------------------------
 
   - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
@@ -497,7 +510,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='hoisting'>Hoisting</a>
+<a name='hoisting'>Hoisting</a>
+-------------------------------
 
   - Variable declarations get hoisted to the top of their scope, their assignment does not.
 
@@ -586,8 +600,8 @@
     **[[⬆]](#TOC)**
 
 
-
-## <a name='conditionals'>Conditional Expressions & Equality</a>
+<a name='conditionals'>Conditional Expressions & Equality</a>
+-------------------------------------------------------------
 
   - Use `===` and `!==` over `==` and `!=`.
   - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
@@ -635,7 +649,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='blocks'>Blocks</a>
+<a name='blocks'>Blocks</a>
+---------------------------
 
   - Use braces with all multi-line blocks.
 
@@ -664,7 +679,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='comments'>Comments</a>
+<a name='comments'>Comments</a>
+-------------------------------
 
   - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
 
@@ -757,7 +773,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='whitespace'>Whitespace</a>
+<a name='whitespace'>Whitespace</a>
+-----------------------------------
 
   - Use soft tabs (tabs composed of spaces) set to 4 spaces
 
@@ -881,7 +898,9 @@
 
     **[[⬆]](#TOC)**
 
-## <a name='commas'>Commas</a>
+
+<a name='commas'>Commas</a>
+---------------------------
 
   - Leading commas: **Nope.**
 
@@ -934,7 +953,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='semicolons'>Semicolons</a>
+<a name='semicolons'>Semicolons</a>
+-----------------------------------
 
   - **Yup.**
 
@@ -961,7 +981,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='type-coercion'>Type Casting & Coercion</a>
+<a name='type-coercion'>Type Casting & Coercion</a>
+---------------------------------------------------
 
   - Perform type coercion at the beginning of the statement.
   - Strings:
@@ -1037,7 +1058,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='naming-conventions'>Naming Conventions</a>
+<a name='naming-conventions'>Naming Conventions</a>
+---------------------------------------------------
 
   - Avoid single letter names. Be descriptive with your naming.
 
@@ -1150,7 +1172,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='accessors'>Accessors</a>
+<a name='accessors'>Accessors</a>
+---------------------------------
 
   - Accessor functions for properties are not required
   - If you do make accessor functions use getVal() and setVal('hello')
@@ -1204,7 +1227,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='constructors'>Constructors</a>
+<a name='constructors'>Constructors</a>
+---------------------------------------
 
   - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
 
@@ -1289,7 +1313,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='events'>Events</a>
+<a name='events'>Events</a>
+---------------------------
 
   - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
@@ -1320,7 +1345,8 @@
   **[[⬆]](#TOC)**
 
 
-## <a name='modules'>Modules</a>
+<a name='modules'>Modules</a>
+-----------------------------
 
   - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
@@ -1351,7 +1377,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='jquery'>jQuery</a>
+<a name='jquery'>jQuery</a>
+---------------------------
 
   - Prefix jQuery object variables with a `$`.
 
@@ -1413,14 +1440,16 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='es5'>ECMAScript 5 Compatibility</a>
+<a name='es5'>ECMAScript 5 Compatibility</a>
+--------------------------------------------
 
   - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
 
   **[[⬆]](#TOC)**
 
 
-## <a name='testing'>Testing</a>
+<a name='testing'>Testing</a>
+-----------------------------
 
   - **Yup.**
 
@@ -1433,7 +1462,8 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='performance'>Performance</a>
+<a name='performance'>Performance</a>
+-------------------------------------
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
@@ -1448,8 +1478,8 @@
   **[[⬆]](#TOC)**
 
 
-## <a name='resources'>Resources</a>
-
+<a name='resources'>Resources</a>
+---------------------------------
 
 **Read This**
 
@@ -1503,7 +1533,9 @@
 
   **[[⬆]](#TOC)**
 
-## <a name='in-the-wild'>In the Wild</a>
+
+<a name='in-the-wild'>In the Wild</a>
+-------------------------------------
 
   This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
@@ -1529,7 +1561,9 @@
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-## <a name='translation'>Translation</a>
+
+<a name='translation'>Translation</a>
+-------------------------------------
 
   This style guide is also available in other languages:
 
@@ -1542,16 +1576,21 @@
   - :fr: **French**: [nmussy/javascript-style-guide](https://github.com/nmussy/javascript-style-guide)
   - :ru: **Russian**: [sbezludny/javascript-style-guide](https://github.com/sbezludny/javascript-style-guide)
 
-## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
+
+<a name='guide-guide'>The JavaScript Style Guide Guide</a>
+----------------------------------------------------------
 
   - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
-## <a name='authors'>Contributors</a>
+
+<a name='authors'>Contributors</a>
+----------------------------------
 
   - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
 
 
-## <a name='license'>License</a>
+<a name='license'>License</a>
+-----------------------------
 
 (The MIT License)
 
@@ -1577,6 +1616,3 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 **[[⬆]](#TOC)**
-
-# };
-
