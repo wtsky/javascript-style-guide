@@ -1467,7 +1467,7 @@
 
   - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
-  - [Named function expressions demystified](http://kangax.github.io/nfe/) - Jurly "kangax" Zaytsev (<a name='nfe-demystified'>*</a>)
+  - <a name='nfe-demystified'>[Named function expressions demystified](http://kangax.github.io/nfe/)</a> - Jurly "kangax" Zaytsev
 
 **Books**
 
