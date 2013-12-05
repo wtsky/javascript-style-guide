@@ -234,7 +234,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
   using string concatenation. (**Note:** If overused, long strings with
   concatenation could impact performance. See this
   [jsperf](//jsperf.com/ya-string-concat) and
-  [discussion](//github.com/airbnb/javascript/issues/40))
+  [discussion](//github.com/airbnb/javascript/issues/40).)
 
     ```javascript
     // good
@@ -308,7 +308,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 <a name='functions'>Functions</a>
 ---------------------------------
 
-  - [Function expressions](#nfe-demystified):
+- [Function expressions](#nfe-demystified):
 
     ```javascript
     // anonymous function expression
@@ -327,17 +327,9 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     })();
     ```
 
-  - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
-  - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](//www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+- Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears. (**Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](//www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).)
 
     ```javascript
-    // bad
-    if ( currentUser ) {
-        function test() {
-            console.log('Nope.');
-        }
-    }
-
     // good
     var test;
     if ( currentUser ) {
@@ -345,31 +337,32 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
             console.log('Yup.');
         };
     }
+
+    // bad
+    if ( currentUser ) {
+        function test() {
+            console.log('Nope.');
+        }
+    }
     ```
 
-  - Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
+- Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
 
     ```javascript
-    // bad
-    function nope ( name, options, arguments ) {
-        // ...stuff...
-    }
-
     // good
     function yup ( name, options, args ) {
         // ...stuff...
     }
+
+    // bad
+    function nope ( name, options, arguments ) {
+        // ...stuff...
+    }
     ```
 
-  - Avoid recursion. Use iteration instead. JavaScript does not ([yet](http://bbenvie.com/articles/2013-01-06/JavaScript-ES6-Has-Tail-Call-Optimization)) have proper tail-calls, so every call adds a frame to the stack, and JavaScript engines allocate a limited number of frames for execution.
+- Avoid recursion. Use iteration instead. JavaScript does not ([yet](http://bbenvie.com/articles/2013-01-06/JavaScript-ES6-Has-Tail-Call-Optimization)) have proper tail-calls, so every call adds a frame to the stack, and JavaScript engines allocate a limited number of frames for execution.
 
     ```javascript
-    // bad
-    function fact ( n, total ) {
-        return n > 0 ? fact( n - 1, n * total ) : 1;
-    }
-    fact(40000, 1); // RangeError: Maximum call stack size exceeded (in Chrome)
-
     // better
     function fact ( n ) {
         var total = 1;
@@ -380,9 +373,15 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
         return total;
     }
     fact(40000); // Infinity (in Chrome; not correct, but that's because of [JavaScript's MaxInt](http://ecma262-5.com/ELS5_HTML.htm#Section_8.5))
+
+    // bad
+    function fact ( n, total ) {
+        return n > 0 ? fact( n - 1, n * total ) : 1;
+    }
+    fact(40000, 1); // RangeError: Maximum call stack size exceeded (in Chrome)
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='properties'>Properties</a>
