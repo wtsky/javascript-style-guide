@@ -534,7 +534,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 <a name='hoisting'>Hoisting</a>
 -------------------------------
 
-  - Variable declarations get hoisted to the top of their scope, their assignment does not.
+- Variable declarations get hoisted to the top of their scope, their assignment does not.
 
     ```javascript
     // we know this wouldn't work (assuming there
@@ -562,7 +562,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     }
     ```
 
-  - Anonymous function expressions hoist their variable name, but not the function assignment.
+- Anonymous function expressions hoist their variable name, but not the function assignment.
 
     ```javascript
     function example() {
@@ -576,7 +576,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     }
     ```
 
-  - Named function expressions hoist the variable name, not the function name or the function body.
+- Named function expressions hoist the variable name, not the function name or the function body.
 
     ```javascript
     function example() {
@@ -604,7 +604,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     }
     ```
 
-  - Function declarations hoist their name and the function body.
+- Function declarations hoist their name and the function body.
 
     ```javascript
     function example() {
@@ -616,9 +616,9 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](//www.adequatelygood.com/)
+For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](//www.adequatelygood.com/).
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='conditionals'>Conditional Expressions & Equality</a>
