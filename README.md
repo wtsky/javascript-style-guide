@@ -994,15 +994,9 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 <a name='semicolons'>Semicolons</a>
 -----------------------------------
 
-  - **Yup.**
+- **Yup.**
 
     ```javascript
-    // bad
-    (function() {
-        var name = 'Skywalker'
-        return name
-    })()
-
     // good
     (function() {
         var name = 'Skywalker';
@@ -1014,9 +1008,15 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
         var name = 'Skywalker';
         return name;
     })();
+
+    // bad
+    (function() {
+        var name = 'Skywalker'
+        return name
+    })()
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='type-coercion'>Type Casting & Coercion</a>
