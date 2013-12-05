@@ -704,15 +704,16 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 <a name='comments'>Comments</a>
 -------------------------------
 
-  - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
+- Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
 
     ```javascript
-    // bad
-    // make() returns a new element
-    // based on the passed in tag name
-    //
-    // @param <String> tag
-    // @return <Element> element
+    // good
+    /** make() returns a new element
+        based on the passed in tag name
+
+        @param <String> tag
+        @return <Element> element
+     */
     function make(tag) {
 
         // ...stuff...
@@ -734,27 +735,28 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
         return element;
     }
+
+    // bad
+    // make() returns a new element
+    // based on the passed in tag name
+    //
+    // @param <String> tag
+    // @return <Element> element
+    function make(tag) {
+
+        // ...stuff...
+
+        return element;
+    }
     ```
 
-  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+- Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
 
     ```javascript
-    // bad
-    var active = true;  // is current tab
-
     // good
     // is current tab
     var active = true;
 
-    // bad
-    function getType() {
-        console.log('fetching type...');
-        // set the default type to 'no type'
-        var type = this._type || 'no type';
-
-        return type;
-    }
-
     // good
     function getType() {
         console.log('fetching type...');
@@ -764,11 +766,23 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
         return type;
     }
+
+    // bad
+    var active = true;  // is current tab
+
+    // bad
+    function getType() {
+        console.log('fetching type...');
+        // set the default type to 'no type'
+        var type = this._type || 'no type';
+
+        return type;
+    }
     ```
 
-  - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+- Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
 
-  - Use `// FIXME:` to annotate problems
+- Use `// FIXME:` to annotate problems
 
     ```javascript
     function Calculator() {
@@ -780,7 +794,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     }
     ```
 
-  - Use `// TODO:` to annotate solutions to problems
+- Use `// TODO:` to annotate solutions to problems
 
     ```javascript
     function Calculator() {
@@ -790,9 +804,9 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
         return this;
     }
-  ```
+    ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='whitespace'>Whitespace</a>
