@@ -1489,6 +1489,7 @@ console.log(foo[0], bar[0]); // => 9, 9
   - [Google JavaScript Style Guide](//google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
   - [jQuery Core Style Guidelines](//docs.jquery.com/JQuery_Core_Style_Guidelines)
   - [Principles of Writing Consistent, Idiomatic JavaScript](//github.com/rwldrn/idiomatic.js/)
+  - [PEP 8 - Style Guide for Python](//www.python.org/dev/peps/pep-0008/)
 
 **Other Styles**
 
