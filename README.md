@@ -1574,7 +1574,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 <a name='in-the-wild'>In the Wild</a>
 -------------------------------------
 
-This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
+This is a list of organizations that are using the [original airbnb JavaScript style guide][airbnb-styleguide]:
 
 - **Aan Zee**: [AanZee/javascript](//github.com/AanZee/javascript)
 - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
@@ -1598,11 +1598,13 @@ This is a list of organizations that are using this style guide. Send us a pull 
 - **Zillow**: [zillow/javascript](//github.com/zillow/javascript)
 - **ZocDoc**: [ZocDoc/javascript](//github.com/ZocDoc/javascript)
 
+If you use this version of the style guide, send us a pull request, and we'll start a list.
+
 
 <a name='translation'>Translation</a>
 -------------------------------------
 
-This style guide is also available in other languages:
+Translations of the [original airbnb JavaScript style guide][airbnb-styleguide] are available in the following languages:
 
 - :de: **German**: [timofurrer/javascript-style-guide](//github.com/timofurrer/javascript-style-guide)
 - :jp: **Japanese**: [mitsuruog/javacript-style-guide](//github.com/mitsuruog/javacript-style-guide)
@@ -1653,3 +1655,6 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 [[↑ back to top]](#TOC)
+
+
+[airbnb-styleguide]:https://github.com/airbnb/javascript
