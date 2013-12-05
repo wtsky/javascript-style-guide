@@ -812,12 +812,17 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 <a name='whitespace'>Whitespace</a>
 -----------------------------------
 
-  - Use soft tabs (tabs composed of spaces) set to 4 spaces
+- Use soft tabs (tabs composed of spaces) set to 4 spaces
 
     ```javascript
+    // good
+    function() {
+    ∙∙∙∙var name;
+    }
+
     // bad
     function() {
-    ∙var name;
+    ∙∙∙var name;
     }
 
     // bad
@@ -827,24 +832,27 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     // bad
     function() {
-    ∙∙∙var name;
+    ∙var name;
     }
 
-    // good
-    function() {
-    ∙∙∙∙var name;
-    }
     ```
-  - Place 1 space before the leading brace.
+
+- Place 1 space before the leading brace.
 
     ```javascript
-    // bad
-    function test(){
-        console.log('test');
-    }
+    // good
+    dog.set('attr', {
+        age: '1 year',
+        breed: 'Bernese Mountain Dog'
+    });
 
     // good
     function test() {
+        console.log('test');
+    }
+
+    // bad
+    function test(){
         console.log('test');
     }
 
@@ -854,26 +862,11 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
         breed: 'Bernese Mountain Dog'
     });
 
-    // good
-    dog.set('attr', {
-        age: '1 year',
-        breed: 'Bernese Mountain Dog'
-    });
     ```
 
-  - **Breathing Room:** Place 1 space after an opening paren, and before a closing paren.
+- **Breathing Room:** Place 1 space after an opening paren, and before a closing paren.
 
     ```javascript
-    // bad
-    for(var i = 0; i < foo.length; ++i) {
-        ...
-    }
-
-    var f = function(a, b, c) {
-        ...
-    };
-
-
     // good
     for ( var i = 0; i < foo.length; ++i ) {
         ...
@@ -882,16 +875,18 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var f = function ( a, b, c ) {
         ...
     };
-    ```
 
-  - Place an empty newline at the end of the file.
-
-    ```javascript
     // bad
-    (function(global) {
-        // ...stuff...
-    })(this);
+    for(var i = 0; i < foo.length; ++i) {
+        ...
+    }
+
+    var f = function(a, b, c) {
+        ...
+    };
     ```
+
+- Place an empty newline at the end of the file.
 
     ```javascript
     // good
@@ -901,12 +896,16 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```
 
-  - Use indentation when making long method chains.
-
     ```javascript
     // bad
-    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+    (function(global) {
+        // ...stuff...
+    })(this);
+    ```
 
+- Use indentation when making long method chains.
+
+    ```javascript
     // good
     $('#items')
         .find('.selected')
@@ -916,10 +915,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
             .updateCount();
 
     // bad
-    var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
-        .attr('width',  (radius + margin) * 2).append('svg:g')
-        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-        .call(tron.led);
+    $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
     // good
     var leds = stage.selectAll('.led')
@@ -930,9 +926,15 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
         .append('svg:g')
             .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
             .call(tron.led);
+
+    // bad
+    var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
+        .attr('width',  (radius + margin) * 2).append('svg:g')
+        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
+        .call(tron.led);
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='commas'>Commas</a>
