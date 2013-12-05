@@ -37,7 +37,6 @@ REI JavaScript Style Guide
 1. [Resources](#resources)
 1. [In the Wild](#in-the-wild)
 1. [Translation](#translation)
-1. [The JavaScript Style Guide Guide](#guide-guide)
 1. [Contributors](#contributors)
 1. [License](#license)
 
@@ -1599,12 +1598,6 @@ Translations of the [original airbnb JavaScript style guide][airbnb-styleguide] 
 - :kr: **Korean**: [tipjs/javascript-style-guide](//github.com/tipjs/javascript-style-guide)
 - :fr: **French**: [nmussy/javascript-style-guide](//github.com/nmussy/javascript-style-guide)
 - :ru: **Russian**: [sbezludny/javascript-style-guide](//github.com/sbezludny/javascript-style-guide)
-
-
-<a name='guide-guide'>The JavaScript Style Guide Guide</a>
-----------------------------------------------------------
-
-- [Reference](//github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
 
 <a name='authors'>Contributors</a>
