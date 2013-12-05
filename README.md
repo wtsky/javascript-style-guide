@@ -175,7 +175,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     var someStack = [];
 
     // good
-    someStack.push('abracadabra');
+    someStack.push( 'abracadabra' );
 
     // bad
     someStack[someStack.length] = 'abracadabra';
@@ -200,8 +200,8 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 - To convert an array-like object to an array, use Array#slice.
 
     ```javascript
-    function trigger() {
-        var args = Array.prototype.slice.call(arguments);
+    function trigger () {
+        var args = Array.prototype.slice.call( arguments );
         ...
     }
     ```
@@ -278,10 +278,10 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     length = messages.length;
 
     // good
-    function inbox(messages) {
+    function inbox ( messages ) {
         items = [];
 
-        for (i = 0; i < length; i++) {
+        for ( i = 0; i < length; i++ ) {
           items[i] = messages[i].message;
         }
 
@@ -289,10 +289,10 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     }
 
     // bad
-    function inbox(messages) {
+    function inbox ( messages ) {
         items = '<ul>';
 
-        for (i = 0; i < length; i++) {
+        for ( i = 0; i < length; i++ ) {
             items += '<li>' + messages[i].message + '</li>';
         }
 
@@ -320,7 +320,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     };
 
     // immediately-invoked function expression (IIFE)
-    (function() {
+    (function () {
         console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
@@ -358,7 +358,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     }
     ```
 
-- Avoid recursion. Use iteration instead. JavaScript does not ([yet](http://bbenvie.com/articles/2013-01-06/JavaScript-ES6-Has-Tail-Call-Optimization)) have proper tail-calls, so every call adds a frame to the stack, and JavaScript engines allocate a limited number of frames for execution.
+- Avoid recursion. Use iteration instead. JavaScript does not ([yet](http://bbenvie.com/articles/2013-01-06/JavaScript-ES6-Has-Tail-Call-Optimization)) have proper tail-calls, so every call adds a frame to the stack.
 
     ```javascript
     // better
@@ -370,13 +370,13 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
         }
         return total;
     }
-    fact(40000); // Infinity (in Chrome; not correct, but that's because of [JavaScript's MaxInt](http://ecma262-5.com/ELS5_HTML.htm#Section_8.5))
+    fact( 40000 ); // => Infinity (in Chrome; not correct, but that's because of JavaScript's MaxInt)
 
     // bad
     function fact ( n, total ) {
         return n > 0 ? fact( n - 1, n * total ) : 1;
     }
-    fact(40000, 1); // RangeError: Maximum call stack size exceeded (in Chrome)
+    fact( 40000, 1 ); // => RangeError: Maximum call stack size exceeded (in Chrome)
     ```
 
 [[↑ back to top]](#TOC)
@@ -408,11 +408,11 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
         age: 28
     };
 
-    function getProp(prop) {
+    function getProp ( prop ) {
         return luke[prop];
     }
 
-    var isJedi = getProp('jedi');
+    var isJedi = getProp( 'jedi' );
     ```
 
 [[↑ back to top]](#TOC)
@@ -472,7 +472,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 
     ```javascript
     // good
-    function() {
+    function () {
         var name = getName();
 
         test();
@@ -480,7 +480,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 
         //..other stuff..
 
-        if (name === 'test') {
+        if ( name === 'test' ) {
             return false;
         }
 
@@ -488,7 +488,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     }
 
     // bad
-    function() {
+    function () {
         test();
         console.log('doing stuff..');
 
@@ -496,7 +496,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 
         var name = getName();
 
-        if (name === 'test') {
+        if ( name === 'test' ) {
             return false;
         }
 
@@ -504,8 +504,8 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     }
 
     // good
-    function() {
-        if (!arguments.length) {
+    function () {
+        if ( !arguments.length ) {
             return false;
         }
 
@@ -515,10 +515,10 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     }
 
     // bad
-    function() {
+    function () {
         var name = getName();
 
-        if (!arguments.length) {
+        if ( !arguments.length ) {
             return false;
         }
 
@@ -537,7 +537,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     ```javascript
     // we know this wouldn't work (assuming there
     // is no notDefined global variable)
-    function example() {
+    function example () {
         console.log(notDefined); // => throws a ReferenceError
     }
 
@@ -545,7 +545,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     // reference the variable will work due to
     // variable hoisting. Note: the assignment
     // value of `true` is not hoisted.
-    function example() {
+    function example () {
         console.log(declaredButNotAssigned); // => undefined
         var declaredButNotAssigned = true;
     }
@@ -553,7 +553,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     // The interpreter is hoisting the variable
     // declaration to the top of the scope.
     // Which means our example could be rewritten as:
-    function example() {
+    function example () {
         var declaredButNotAssigned;
         console.log(declaredButNotAssigned); // => undefined
         declaredButNotAssigned = true;
@@ -563,12 +563,12 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 - Anonymous function expressions hoist their variable name, but not the function assignment.
 
     ```javascript
-    function example() {
+    function example () {
         console.log(anonymous); // => undefined
 
         anonymous(); // => TypeError anonymous is not a function
 
-        var anonymous = function() {
+        var anonymous = function () {
             console.log('anonymous function expression');
         };
     }
@@ -577,26 +577,26 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 - Named function expressions hoist the variable name, not the function name or the function body.
 
     ```javascript
-    function example() {
+    function example () {
         console.log(named); // => undefined
 
         named(); // => TypeError named is not a function
 
         superPower(); // => ReferenceError superPower is not defined
 
-        var named = function superPower() {
+        var named = function superPower () {
             console.log('Flying');
         };
     }
 
     // the same is true when the function name
     // is the same as the variable name.
-    function example() {
+    function example () {
         console.log(named); // => undefined
 
         named(); // => TypeError named is not a function
 
-        var named = function named() {
+        var named = function named () {
             console.log('named');
         }
     }
@@ -605,10 +605,10 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 - Function declarations hoist their name and the function body.
 
     ```javascript
-    function example() {
+    function example () {
         superPower(); // => Flying
 
-        function superPower() {
+        function superPower () {
             console.log('Flying');
         }
     }
@@ -634,7 +634,7 @@ For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygo
     + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
     ```javascript
-    if ([0]) {
+    if ( [0] ) {
         // true
         // An array is an object, objects evaluate to true
     }
@@ -644,22 +644,22 @@ For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygo
 
     ```javascript
     // good
-    if (name) {
+    if ( name ) {
         // ...stuff...
     }
 
     // bad
-    if (name !== '') {
+    if ( name !== '' ) {
         // ...stuff...
     }
 
     // good
-    if (collection.length) {
+    if ( collection.length ) {
         // ...stuff...
     }
 
     // bad
-    if (collection.length > 0) {
+    if ( collection.length > 0 ) {
         // ...stuff...
     }
     ```
@@ -676,24 +676,24 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     // good
-    if (test) return false;
+    if ( test ) return false;
 
     // good
-    if (test) {
+    if ( test ) {
         return false;
     }
 
     // good
-    function() {
+    function () {
         return false;
     }
 
     // bad
-    if (test)
+    if ( test )
         return false;
 
     // bad
-    function() { return false; }
+    function () { return false; }
     ```
 
 [[↑ back to top]](#TOC)
@@ -706,13 +706,13 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     // good
-    /** make() returns a new element
+    /** make () returns a new element
         based on the passed in tag name
 
         @param <String> tag
         @return <Element> element
      */
-    function make(tag) {
+    function make ( tag ) {
 
         // ...stuff...
 
@@ -727,7 +727,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
      * @param <String> tag
      * @return <Element> element
      */
-    function make(tag) {
+    function make ( tag ) {
 
         // ...stuff...
 
@@ -740,7 +740,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     //
     // @param <String> tag
     // @return <Element> element
-    function make(tag) {
+    function make ( tag ) {
 
         // ...stuff...
 
@@ -756,7 +756,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var active = true;
 
     // good
-    function getType() {
+    function getType () {
         console.log('fetching type...');
 
         // set the default type to 'no type'
@@ -769,7 +769,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var active = true;  // is current tab
 
     // bad
-    function getType() {
+    function getType () {
         console.log('fetching type...');
         // set the default type to 'no type'
         var type = this._type || 'no type';
@@ -783,7 +783,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 - Use `// FIXME:` to annotate problems
 
     ```javascript
-    function Calculator() {
+    function Calculator () {
 
         // FIXME: shouldn't use a global here
         total = 0;
@@ -795,7 +795,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 - Use `// TODO:` to annotate solutions to problems
 
     ```javascript
-    function Calculator() {
+    function Calculator () {
 
         // TODO: total should be configurable by an options param
         this.total = 0;
@@ -814,22 +814,22 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     // good
-    function() {
+    function () {
     ∙∙∙∙var name;
     }
 
     // bad
-    function() {
+    function () {
     ∙∙∙var name;
     }
 
     // bad
-    function() {
+    function () {
     ∙∙var name;
     }
 
     // bad
-    function() {
+    function () {
     ∙var name;
     }
 
@@ -845,7 +845,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     });
 
     // good
-    function test() {
+    function test () {
         console.log('test');
     }
 
@@ -862,7 +862,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```
 
-- **Breathing Room:** Place 1 space after an opening paren, and before a closing paren.
+- **Breathing Room:** Place 1 space before and after parens.
 
     ```javascript
     // good
@@ -882,23 +882,27 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var f = function(a, b, c) {
         ...
     };
+
+    // except when invoking a function
+    // good
+    f( 1, 2, 3 );
     ```
 
 - Place an empty newline at the end of the file.
 
     ```javascript
     // good
-    (function(global) {
+    (function ( global ) {
         // ...stuff...
-    })(this);
+    })( this );
 
     ```
 
     ```javascript
     // bad
-    (function(global) {
+    (function ( global ) {
         // ...stuff...
-    })(this);
+    })( this );
     ```
 
 - Use indentation when making long method chains.
@@ -996,19 +1000,19 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     // good
-    (function() {
+    ;(function () {
         var name = 'Skywalker';
         return name;
     })();
 
     // good
-    ;(function() {
+    (function () {
         var name = 'Skywalker';
         return name;
     })();
 
     // bad
-    (function() {
+    (function () {
         var name = 'Skywalker'
         return name
     })()
@@ -1046,13 +1050,13 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var inputValue = '4';
 
     // good
-    var val = Number(inputValue);
+    var val = parseInt( inputValue, 10 );
 
-    // good
-    var val = parseInt(inputValue, 10);
+    // acceptable
+    var val = Number( inputValue );
 
     // bad
-    var val = new Number(inputValue);
+    var val = new Number( inputValue );
 
     // bad
     var val = +inputValue;
@@ -1061,7 +1065,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var val = inputValue >> 0;
 
     // bad
-    var val = parseInt(inputValue);
+    var val = parseInt( inputValue );
     ```
 
 - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](//jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing. (**Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](//es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](//es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](//github.com/airbnb/javascript/issues/109))
@@ -1082,13 +1086,13 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var age = 0;
 
     // good
-    var hasAge = Boolean(age);
-
-    // good
     var hasAge = !!age;
 
+    // good
+    var hasAge = Boolean( age );
+
     // bad
-    var hasAge = new Boolean(age);
+    var hasAge = new Boolean( age );
     ```
 
 [[↑ back to top]](#TOC)
@@ -1101,12 +1105,12 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     // good
-    function query() {
+    function query () {
         // ..stuff..
     }
 
     // bad
-    function q() {
+    function q () {
         // ...stuff...
     }
     ```
@@ -1134,7 +1138,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     // good
-    function User(options) {
+    function User ( options ) {
         this.name = options.name;
     }
 
@@ -1143,7 +1147,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     });
 
     // bad
-    function user(options) {
+    function user ( options ) {
         this.name = options.name;
     }
 
@@ -1163,29 +1167,29 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     this.firstName_ = 'Panda';
     ```
 
-- When saving a reference to `this` use `_this`.
+- When saving a reference to `this` use `_this` or `self`.
 
     ```javascript
     // good
-    function() {
+    function () {
         var _this = this;
-        return function() {
+        return function () {
             console.log(_this);
         };
     }
 
-    // bad
-    function() {
+    // good
+    function () {
         var self = this;
-        return function() {
+        return function () {
             console.log(self);
         };
     }
 
     // bad
-    function() {
+    function () {
         var that = this;
-        return function() {
+        return function () {
             console.log(that);
         };
     }
@@ -1195,12 +1199,12 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     // good
-    var log = function log(msg) {
+    var log = function log ( msg ) {
         console.log(msg);
     };
 
     // bad
-    var log = function(msg) {
+    var log = function ( msg ) {
         console.log(msg);
     };
     ```
@@ -1222,22 +1226,22 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     dragon.age();
 
     // good
-    dragon.setAge(25);
+    dragon.setAge( 25 );
 
     // bad
-    dragon.age(25);
+    dragon.age( 25 );
     ```
 
 - If the property is a boolean, use isVal() or hasVal()
 
     ```javascript
     // good
-    if (!dragon.hasAge()) {
+    if ( !dragon.hasAge() ) {
         return false;
     }
 
     // bad
-    if (!dragon.age()) {
+    if ( !dragon.age() ) {
         return false;
     }
     ```
@@ -1245,17 +1249,17 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 - It's okay to create get() and set() functions, but be consistent.
 
     ```javascript
-    function Jedi(options) {
+    function Jedi ( options ) {
         options || (options = {});
         var lightsaber = options.lightsaber || 'blue';
-        this.set('lightsaber', lightsaber);
+        this.set( 'lightsaber', lightsaber );
     }
 
-    Jedi.prototype.set = function(key, val) {
+    Jedi.prototype.set = function ( key, val ) {
         this[key] = val;
     };
 
-    Jedi.prototype.get = function(key) {
+    Jedi.prototype.get = function ( key ) {
         return this[key];
     };
     ```
@@ -1269,26 +1273,26 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
 
     ```javascript
-    function Jedi() {
+    function Jedi () {
         console.log('new jedi');
     }
 
     // good
-    Jedi.prototype.fight = function fight() {
+    Jedi.prototype.fight = function fight () {
         console.log('fighting');
     };
 
-    Jedi.prototype.block = function block() {
+    Jedi.prototype.block = function block () {
         console.log('blocking');
     };
 
     // bad
     Jedi.prototype = {
-        fight: function fight() {
+        fight: function fight () {
             console.log('fighting');
         },
 
-        block: function block() {
+        block: function block () {
             console.log('blocking');
         }
     };
@@ -1298,12 +1302,12 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     // good
-    Jedi.prototype.jump = function() {
+    Jedi.prototype.jump = function () {
         this.jumping = true;
         return this;
     };
 
-    Jedi.prototype.setHeight = function(height) {
+    Jedi.prototype.setHeight = function ( height ) {
         this.height = height;
         return this;
     };
@@ -1311,37 +1315,37 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var luke = new Jedi();
 
     luke.jump()
-        .setHeight(20);
+        .setHeight( 20 );
 
     // bad
-    Jedi.prototype.jump = function() {
+    Jedi.prototype.jump = function () {
         this.jumping = true;
         return true;
     };
 
-    Jedi.prototype.setHeight = function(height) {
+    Jedi.prototype.setHeight = function ( height ) {
         this.height = height;
     };
 
     var luke = new Jedi();
     luke.jump(); // => true
-    luke.setHeight(20) // => undefined
+    luke.setHeight( 20 ) // => undefined
     ```
 
 
 - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
 
     ```javascript
-    function Jedi(options) {
+    function Jedi ( options ) {
         options || (options = {});
         this.name = options.name || 'no name';
     }
 
-    Jedi.prototype.getName = function getName() {
+    Jedi.prototype.getName = function getName () {
         return this.name;
     };
 
-    Jedi.prototype.toString = function toString() {
+    Jedi.prototype.toString = function toString () {
         return 'Jedi - ' + this.getName();
     };
     ```
@@ -1356,21 +1360,23 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```js
     // good
-    $(this).trigger('listingUpdated', { listingId : listing.id });
+    $(this).trigger( 'listingUpdated', {
+        listingId: listing.id
+    });
 
     ...
 
-    $(this).on('listingUpdated', function(e, data) {
+    $(this).on( 'listingUpdated', function ( e, data ) {
         // do something with data.listingId
     });
 
 
     // bad
-    $(this).trigger('listingUpdated', listing.id);
+    $(this).trigger( 'listingUpdated', listing.id );
 
     ...
 
-    $(this).on('listingUpdated', function(e, listingId) {
+    $(this).on( 'listingUpdated', function ( e, listingId ) {
         // do something with listingId
     });
     ```
@@ -1389,22 +1395,22 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // fancyInput/fancyInput.js
 
-    !function(global) {
+    !function ( global ) {
         'use strict';
 
         var previousFancyInput = global.FancyInput;
 
-        function FancyInput(options) {
+        function FancyInput ( options ) {
             this.options = options || {};
         }
 
-        FancyInput.noConflict = function noConflict() {
+        FancyInput.noConflict = function noConflict () {
             global.FancyInput = previousFancyInput;
             return FancyInput;
         };
 
         global.FancyInput = FancyInput;
-    }(this);
+    }( this );
     ```
 
 [[↑ back to top]](#TOC)
@@ -1427,7 +1433,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     // good
-    function setSidebar() {
+    function setSidebar () {
         var $sidebar = $('.sidebar');
         $sidebar.hide();
 
@@ -1439,7 +1445,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     }
 
     // bad
-    function setSidebar() {
+    function setSidebar () {
         $('.sidebar').hide();
 
         // ...stuff...
