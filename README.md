@@ -1019,32 +1019,39 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 [[↑ back to top]](#TOC)
 
 
-<a name='type-coercion'>Type Casting & Coercion</a>
+<a name='type-coercion'>Type Casting & Coersion</a>
 ---------------------------------------------------
 
-  - Perform type coercion at the beginning of the statement.
-  - Strings:
+- Perform type coercion at the beginning of the statement.
+
+- Strings:
 
     ```javascript
     //  => this.reviewScore = 9;
-
-    // bad
-    var totalScore = this.reviewScore + '';
 
     // good
     var totalScore = '' + this.reviewScore;
 
     // bad
-    var totalScore = '' + this.reviewScore + ' total score';
+    var totalScore = this.reviewScore + '';
 
     // good
     var totalScore = this.reviewScore + ' total score';
+
+    // bad
+    var totalScore = '' + this.reviewScore + ' total score';
     ```
 
-  - Use `parseInt` for Numbers and always with a radix for type casting.
+- Use `parseInt` for Numbers and always with a radix for type casting.
 
     ```javascript
     var inputValue = '4';
+
+    // good
+    var val = Number(inputValue);
+
+    // good
+    var val = parseInt(inputValue, 10);
 
     // bad
     var val = new Number(inputValue);
@@ -1057,16 +1064,9 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     // bad
     var val = parseInt(inputValue);
-
-    // good
-    var val = Number(inputValue);
-
-    // good
-    var val = parseInt(inputValue, 10);
     ```
 
-  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](//jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
-  - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](//es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](//es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](//github.com/airbnb/javascript/issues/109)
+- If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](//jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing. (**Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](//es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](//es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](//github.com/airbnb/javascript/issues/109))
 
     ```javascript
     // good
@@ -1078,22 +1078,22 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var val = inputValue >> 0;
     ```
 
-  - Booleans:
+- Booleans:
 
     ```javascript
     var age = 0;
-
-    // bad
-    var hasAge = new Boolean(age);
 
     // good
     var hasAge = Boolean(age);
 
     // good
     var hasAge = !!age;
+
+    // bad
+    var hasAge = new Boolean(age);
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='naming-conventions'>Naming Conventions</a>
