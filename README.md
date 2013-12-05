@@ -1213,38 +1213,38 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 <a name='accessors'>Accessors</a>
 ---------------------------------
 
-  - Accessor functions for properties are not required
-  - If you do make accessor functions use getVal() and setVal('hello')
+- Accessor functions for properties are not required
+- If you do make accessor functions use getVal() and setVal('hello')
 
     ```javascript
-    // bad
-    dragon.age();
-
     // good
     dragon.getAge();
 
     // bad
-    dragon.age(25);
+    dragon.age();
 
     // good
     dragon.setAge(25);
+
+    // bad
+    dragon.age(25);
     ```
 
-  - If the property is a boolean, use isVal() or hasVal()
+- If the property is a boolean, use isVal() or hasVal()
 
     ```javascript
-    // bad
-    if (!dragon.age()) {
-        return false;
-    }
-
     // good
     if (!dragon.hasAge()) {
         return false;
     }
+
+    // bad
+    if (!dragon.age()) {
+        return false;
+    }
     ```
 
-  - It's okay to create get() and set() functions, but be consistent.
+- It's okay to create get() and set() functions, but be consistent.
 
     ```javascript
     function Jedi(options) {
@@ -1262,18 +1262,27 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     };
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='constructors'>Constructors</a>
 ---------------------------------------
 
-  - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
+- Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
 
     ```javascript
     function Jedi() {
         console.log('new jedi');
     }
+
+    // good
+    Jedi.prototype.fight = function fight() {
+        console.log('fighting');
+    };
+
+    Jedi.prototype.block = function block() {
+        console.log('blocking');
+    };
 
     // bad
     Jedi.prototype = {
@@ -1285,34 +1294,11 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
             console.log('blocking');
         }
     };
-
-    // good
-    Jedi.prototype.fight = function fight() {
-        console.log('fighting');
-    };
-
-    Jedi.prototype.block = function block() {
-        console.log('blocking');
-    };
     ```
 
-  - Methods can return `this` to help with method chaining.
+- Methods can return `this` to help with method chaining.
 
     ```javascript
-    // bad
-    Jedi.prototype.jump = function() {
-        this.jumping = true;
-        return true;
-    };
-
-    Jedi.prototype.setHeight = function(height) {
-        this.height = height;
-    };
-
-    var luke = new Jedi();
-    luke.jump(); // => true
-    luke.setHeight(20) // => undefined
-
     // good
     Jedi.prototype.jump = function() {
         this.jumping = true;
@@ -1328,10 +1314,24 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     luke.jump()
         .setHeight(20);
+
+    // bad
+    Jedi.prototype.jump = function() {
+        this.jumping = true;
+        return true;
+    };
+
+    Jedi.prototype.setHeight = function(height) {
+        this.height = height;
+    };
+
+    var luke = new Jedi();
+    luke.jump(); // => true
+    luke.setHeight(20) // => undefined
     ```
 
 
-  - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+- It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
 
     ```javascript
     function Jedi(options) {
@@ -1348,26 +1348,13 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     };
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='events'>Events</a>
 ---------------------------
 
-  - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
-
-    ```js
-    // bad
-    $(this).trigger('listingUpdated', listing.id);
-
-    ...
-
-    $(this).on('listingUpdated', function(e, listingId) {
-        // do something with listingId
-    });
-    ```
-
-    prefer:
+- When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
 
     ```js
     // good
@@ -1378,18 +1365,28 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     $(this).on('listingUpdated', function(e, data) {
         // do something with data.listingId
     });
+
+
+    // bad
+    $(this).trigger('listingUpdated', listing.id);
+
+    ...
+
+    $(this).on('listingUpdated', function(e, listingId) {
+        // do something with listingId
+    });
     ```
 
-  [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='modules'>Modules</a>
 -----------------------------
 
-  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](//github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
-  - Add a method called noConflict() that sets the exported module to the previous version and returns this one.
-  - Always declare `'use strict';` at the top of the module.
+- The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](//github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+- The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
+- Add a method called noConflict() that sets the exported module to the previous version and returns this one.
+- Always declare `'use strict';` at the top of the module.
 
     ```javascript
     // fancyInput/fancyInput.js
@@ -1412,36 +1409,25 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     }(this);
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='jquery'>jQuery</a>
 ---------------------------
 
-  - Prefix jQuery object variables with a `$`.
+- Prefix jQuery object variables with a `$`.
 
     ```javascript
-    // bad
-    var sidebar = $('.sidebar');
-
     // good
     var $sidebar = $('.sidebar');
+
+    // bad
+    var sidebar = $('.sidebar');
     ```
 
-  - Cache jQuery lookups.
+- Cache jQuery lookups.
 
     ```javascript
-    // bad
-    function setSidebar() {
-        $('.sidebar').hide();
-
-        // ...stuff...
-
-        $('.sidebar').css({
-            'background-color': 'pink'
-        });
-    }
-
     // good
     function setSidebar() {
         var $sidebar = $('.sidebar');
@@ -1453,18 +1439,23 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
             'background-color': 'pink'
         });
     }
+
+    // bad
+    function setSidebar() {
+        $('.sidebar').hide();
+
+        // ...stuff...
+
+        $('.sidebar').css({
+            'background-color': 'pink'
+        });
+    }
     ```
 
-  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](//jsperf.com/jquery-find-vs-context-sel/16)
-  - Use `find` with scoped jQuery object queries.
+- For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](//jsperf.com/jquery-find-vs-context-sel/16)
+- Use `find` with scoped jQuery object queries.
 
     ```javascript
-    // bad
-    $('ul', '.sidebar').hide();
-
-    // bad
-    $('.sidebar').find('ul').hide();
-
     // good
     $('.sidebar ul').hide();
 
@@ -1473,23 +1464,29 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     // good
     $sidebar.find('ul');
+
+    // bad
+    $('ul', '.sidebar').hide();
+
+    // bad
+    $('.sidebar').find('ul').hide();
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='es5'>ECMAScript 5 Compatibility</a>
 --------------------------------------------
 
-  - Refer to [Kangax](//twitter.com/kangax/)'s ES5 [compatibility table](//kangax.github.com/es5-compat-table/)
+    - Refer to [Kangax](//twitter.com/kangax/)'s ES5 [compatibility table](//kangax.github.com/es5-compat-table/)
 
-  [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='testing'>Testing</a>
 -----------------------------
 
-  - **Yup.**
+- **Yup.**
 
     ```javascript
     function() {
@@ -1497,23 +1494,23 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     }
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='performance'>Performance</a>
 -------------------------------------
 
-  - [On Layout & Web Performance](//kellegous.com/j/2013/01/26/layout-performance/)
-  - [String vs Array Concat](//jsperf.com/string-vs-array-concat/2)
-  - [Try/Catch Cost In a Loop](//jsperf.com/try-catch-in-loop-cost)
-  - [Bang Function](//jsperf.com/bang-function)
-  - [jQuery Find vs Context, Selector](//jsperf.com/jquery-find-vs-context-sel/13)
-  - [innerHTML vs textContent for script text](//jsperf.com/innerhtml-vs-textcontent-for-script-text)
-  - [Long String Concatenation](//jsperf.com/ya-string-concat)
-  - [Array construction](//jsperf.com/sized-array-creation)
-  - Loading...
+- [On Layout & Web Performance](//kellegous.com/j/2013/01/26/layout-performance/)
+- [String vs Array Concat](//jsperf.com/string-vs-array-concat/2)
+- [Try/Catch Cost In a Loop](//jsperf.com/try-catch-in-loop-cost)
+- [Bang Function](//jsperf.com/bang-function)
+- [jQuery Find vs Context, Selector](//jsperf.com/jquery-find-vs-context-sel/13)
+- [innerHTML vs textContent for script text](//jsperf.com/innerhtml-vs-textcontent-for-script-text)
+- [Long String Concatenation](//jsperf.com/ya-string-concat)
+- [Array construction](//jsperf.com/sized-array-creation)
+- Loading...
 
-  [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='resources'>Resources</a>
@@ -1521,112 +1518,112 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
 **Read This**
 
-  - [Annotated ECMAScript 5.1](//es5.github.com/)
+- [Annotated ECMAScript 5.1](//es5.github.com/)
 
 **Other Styleguides**
 
-  - [Google JavaScript Style Guide](//google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
-  - [jQuery Core Style Guidelines](//docs.jquery.com/JQuery_Core_Style_Guidelines)
-  - [Principles of Writing Consistent, Idiomatic JavaScript](//github.com/rwldrn/idiomatic.js/)
-  - [PEP 8 - Style Guide for Python](//www.python.org/dev/peps/pep-0008/)
+- [Google JavaScript Style Guide](//google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+- [jQuery Core Style Guidelines](//docs.jquery.com/JQuery_Core_Style_Guidelines)
+- [Principles of Writing Consistent, Idiomatic JavaScript](//github.com/rwldrn/idiomatic.js/)
+- [PEP 8 - Style Guide for Python](//www.python.org/dev/peps/pep-0008/)
 
 **Other Styles**
 
-  - [Naming this in nested functions](//gist.github.com/4135065) - Christian Johansen
-  - [Conditional Callbacks](//github.com/airbnb/javascript/issues/52)
-  - [Popular JavaScript Coding Conventions on Github](//sideeffect.kr/popularconvention/#javascript)
+- [Naming this in nested functions](//gist.github.com/4135065) - Christian Johansen
+- [Conditional Callbacks](//github.com/airbnb/javascript/issues/52)
+- [Popular JavaScript Coding Conventions on Github](//sideeffect.kr/popularconvention/#javascript)
 
 **Further Reading**
 
-  - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
-  - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
-  - <a name='nfe-demystified'>[Named function expressions demystified](http://kangax.github.io/nfe/)</a> - Jurly "kangax" Zaytsev
+- [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
+- [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
+- <a name='nfe-demystified'>[Named function expressions demystified](http://kangax.github.io/nfe/)</a> - Jurly "kangax" Zaytsev
 
 **Books**
 
-  - [JavaScript: The Good Parts](//www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
-  - [JavaScript Patterns](//www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
-  - [Pro JavaScript Design Patterns](//www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X)  - Ross Harmes and Dustin Diaz
-  - [High Performance Web Sites: Essential Knowledge for Front-End Engineers](//www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309) - Steve Souders
-  - [Maintainable JavaScript](//www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680) - Nicholas C. Zakas
-  - [JavaScript Web Applications](//www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X) - Alex MacCaw
-  - [Pro JavaScript Techniques](//www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273) - John Resig
-  - [Smashing Node.js: JavaScript Everywhere](//www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595) - Guillermo Rauch
-  - [Secrets of the JavaScript Ninja](//www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault
-  - [Human JavaScript](//humanjavascript.com/) - Henrik Joreteg
-  - [Superhero.js](//superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
-  - [JSBooks](//jsbooks.revolunet.com/)
+- [JavaScript: The Good Parts](//www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
+- [JavaScript Patterns](//www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
+- [Pro JavaScript Design Patterns](//www.amazon.com/JavaScript-Design-Patterns-Recipes-Problem-Solution/dp/159059908X)  - Ross Harmes and Dustin Diaz
+- [High Performance Web Sites: Essential Knowledge for Front-End Engineers](//www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309) - Steve Souders
+- [Maintainable JavaScript](//www.amazon.com/Maintainable-JavaScript-Nicholas-C-Zakas/dp/1449327680) - Nicholas C. Zakas
+- [JavaScript Web Applications](//www.amazon.com/JavaScript-Web-Applications-Alex-MacCaw/dp/144930351X) - Alex MacCaw
+- [Pro JavaScript Techniques](//www.amazon.com/Pro-JavaScript-Techniques-John-Resig/dp/1590597273) - John Resig
+- [Smashing Node.js: JavaScript Everywhere](//www.amazon.com/Smashing-Node-js-JavaScript-Everywhere-Magazine/dp/1119962595) - Guillermo Rauch
+- [Secrets of the JavaScript Ninja](//www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X) - John Resig and Bear Bibeault
+- [Human JavaScript](//humanjavascript.com/) - Henrik Joreteg
+- [Superhero.js](//superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
+- [JSBooks](//jsbooks.revolunet.com/)
 
 **Blogs**
 
-  - [DailyJS](//dailyjs.com/)
-  - [JavaScript Weekly](//javascriptweekly.com/)
-  - [JavaScript, JavaScript...](//javascriptweblog.wordpress.com/)
-  - [Bocoup Weblog](//weblog.bocoup.com/)
-  - [Adequately Good](//www.adequatelygood.com/)
-  - [NCZOnline](//www.nczonline.net/)
-  - [Perfection Kills](//perfectionkills.com/)
-  - [Ben Alman](//benalman.com/)
-  - [Dmitry Baranovskiy](//dmitry.baranovskiy.com/)
-  - [Dustin Diaz](//dustindiaz.com/)
-  - [nettuts](//net.tutsplus.com/?s=javascript)
+- [DailyJS](//dailyjs.com/)
+- [JavaScript Weekly](//javascriptweekly.com/)
+- [JavaScript, JavaScript...](//javascriptweblog.wordpress.com/)
+- [Bocoup Weblog](//weblog.bocoup.com/)
+- [Adequately Good](//www.adequatelygood.com/)
+- [NCZOnline](//www.nczonline.net/)
+- [Perfection Kills](//perfectionkills.com/)
+- [Ben Alman](//benalman.com/)
+- [Dmitry Baranovskiy](//dmitry.baranovskiy.com/)
+- [Dustin Diaz](//dustindiaz.com/)
+- [nettuts](//net.tutsplus.com/?s=javascript)
 
-  [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='in-the-wild'>In the Wild</a>
 -------------------------------------
 
-  This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
+This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
 
-  - **Aan Zee**: [AanZee/javascript](//github.com/AanZee/javascript)
-  - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
-  - **American Insitutes for Research**: [AIRAST/javascript](//github.com/AIRAST/javascript)
-  - **Compass Learning**: [compasslearning/javascript-style-guide](//github.com/compasslearning/javascript-style-guide)
-  - **ExactTarget**: [ExactTarget/javascript](//github.com/ExactTarget/javascript)
-  - **Gawker Media**: [gawkermedia/javascript](//github.com/gawkermedia/javascript)
-  - **GeneralElectric**: [GeneralElectric/javascript](//github.com/GeneralElectric/javascript)
-  - **GoodData**: [gooddata/gdc-js-style](//github.com/gooddata/gdc-js-style)
-  - **Grooveshark**: [grooveshark/javascript](//github.com/grooveshark/javascript)
-  - **How About We**: [howaboutwe/javascript](//github.com/howaboutwe/javascript)
-  - **Mighty Spring**: [mightyspring/javascript](//github.com/mightyspring/javascript)
-  - **MinnPost**: [MinnPost/javascript](//github.com/MinnPost/javascript)
-  - **ModCloth**: [modcloth/javascript](//github.com/modcloth/javascript)
-  - **National Geographic**: [natgeo/javascript](//github.com/natgeo/javascript)
-  - **National Park Service**: [nationalparkservice/javascript](//github.com/nationalparkservice/javascript)
-  - **Razorfish**: [razorfish/javascript-style-guide](//github.com/razorfish/javascript-style-guide)
-  - **REI**: [reidev/javascript](//github.com/reidev/javascript)
-  - **Shutterfly**: [shutterfly/javascript](//github.com/shutterfly/javascript)
-  - **Userify**: [userify/javascript](//github.com/userify/javascript)
-  - **Zillow**: [zillow/javascript](//github.com/zillow/javascript)
-  - **ZocDoc**: [ZocDoc/javascript](//github.com/ZocDoc/javascript)
+- **Aan Zee**: [AanZee/javascript](//github.com/AanZee/javascript)
+- **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
+- **American Insitutes for Research**: [AIRAST/javascript](//github.com/AIRAST/javascript)
+- **Compass Learning**: [compasslearning/javascript-style-guide](//github.com/compasslearning/javascript-style-guide)
+- **ExactTarget**: [ExactTarget/javascript](//github.com/ExactTarget/javascript)
+- **Gawker Media**: [gawkermedia/javascript](//github.com/gawkermedia/javascript)
+- **GeneralElectric**: [GeneralElectric/javascript](//github.com/GeneralElectric/javascript)
+- **GoodData**: [gooddata/gdc-js-style](//github.com/gooddata/gdc-js-style)
+- **Grooveshark**: [grooveshark/javascript](//github.com/grooveshark/javascript)
+- **How About We**: [howaboutwe/javascript](//github.com/howaboutwe/javascript)
+- **Mighty Spring**: [mightyspring/javascript](//github.com/mightyspring/javascript)
+- **MinnPost**: [MinnPost/javascript](//github.com/MinnPost/javascript)
+- **ModCloth**: [modcloth/javascript](//github.com/modcloth/javascript)
+- **National Geographic**: [natgeo/javascript](//github.com/natgeo/javascript)
+- **National Park Service**: [nationalparkservice/javascript](//github.com/nationalparkservice/javascript)
+- **Razorfish**: [razorfish/javascript-style-guide](//github.com/razorfish/javascript-style-guide)
+- **REI**: [reidev/javascript](//github.com/reidev/javascript)
+- **Shutterfly**: [shutterfly/javascript](//github.com/shutterfly/javascript)
+- **Userify**: [userify/javascript](//github.com/userify/javascript)
+- **Zillow**: [zillow/javascript](//github.com/zillow/javascript)
+- **ZocDoc**: [ZocDoc/javascript](//github.com/ZocDoc/javascript)
 
 
 <a name='translation'>Translation</a>
 -------------------------------------
 
-  This style guide is also available in other languages:
+This style guide is also available in other languages:
 
-  - :de: **German**: [timofurrer/javascript-style-guide](//github.com/timofurrer/javascript-style-guide)
-  - :jp: **Japanese**: [mitsuruog/javacript-style-guide](//github.com/mitsuruog/javacript-style-guide)
-  - :br: **Portuguese**: [armoucar/javascript-style-guide](//github.com/armoucar/javascript-style-guide)
-  - :cn: **Chinese**: [adamlu/javascript-style-guide](//github.com/adamlu/javascript-style-guide)
-  - :es: **Spanish**: [paolocarrasco/javascript-style-guide](//github.com/paolocarrasco/javascript-style-guide)
-  - :kr: **Korean**: [tipjs/javascript-style-guide](//github.com/tipjs/javascript-style-guide)
-  - :fr: **French**: [nmussy/javascript-style-guide](//github.com/nmussy/javascript-style-guide)
-  - :ru: **Russian**: [sbezludny/javascript-style-guide](//github.com/sbezludny/javascript-style-guide)
+- :de: **German**: [timofurrer/javascript-style-guide](//github.com/timofurrer/javascript-style-guide)
+- :jp: **Japanese**: [mitsuruog/javacript-style-guide](//github.com/mitsuruog/javacript-style-guide)
+- :br: **Portuguese**: [armoucar/javascript-style-guide](//github.com/armoucar/javascript-style-guide)
+- :cn: **Chinese**: [adamlu/javascript-style-guide](//github.com/adamlu/javascript-style-guide)
+- :es: **Spanish**: [paolocarrasco/javascript-style-guide](//github.com/paolocarrasco/javascript-style-guide)
+- :kr: **Korean**: [tipjs/javascript-style-guide](//github.com/tipjs/javascript-style-guide)
+- :fr: **French**: [nmussy/javascript-style-guide](//github.com/nmussy/javascript-style-guide)
+- :ru: **Russian**: [sbezludny/javascript-style-guide](//github.com/sbezludny/javascript-style-guide)
 
 
 <a name='guide-guide'>The JavaScript Style Guide Guide</a>
 ----------------------------------------------------------
 
-  - [Reference](//github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
+- [Reference](//github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
 
 <a name='authors'>Contributors</a>
 ----------------------------------
 
-  - [View Contributors](//github.com/airbnb/javascript/graphs/contributors)
+- [View Contributors](//github.com/airbnb/javascript/graphs/contributors)
 
 
 <a name='license'>License</a>
