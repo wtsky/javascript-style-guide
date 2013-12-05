@@ -72,7 +72,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 <a name='types'>Types</a>
 -------------------------
 
-- **Primitives:** When you access a primitive type you work directly on its value
+- **Primitives:** When you access a primitive type you work directly on its value.
 
     + `string`
     + `number`
@@ -89,7 +89,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     console.log(foo, bar); // => 1, 9
     ```
 
-- **Complex:** When you access a complex type you work on a reference to its value
+- **Complex:** When you access a complex type you work on a reference to its value.
 
     + `object`
     + `array`
@@ -161,46 +161,45 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 <a name='arrays'>Arrays</a>
 ---------------------------
 
-  - Use the literal syntax for array creation
+- Use the literal syntax for array creation.
 
     ```javascript
-    // bad
-    var items = new Array();
-
     // good
     var items = [];
+
+    // bad
+    var items = new Array();
     ```
 
-  - If you don't know array length use Array#push.
+- If you don't know array length use Array#push.
 
     ```javascript
     var someStack = [];
 
+    // good
+    someStack.push('abracadabra');
 
     // bad
     someStack[someStack.length] = 'abracadabra';
-
-    // good
-    someStack.push('abracadabra');
     ```
 
-  - When you need to copy an array use Array#slice. [jsPerf](//jsperf.com/converting-arguments-to-an-array/7)
+- When you need to copy an array use Array#slice. ([jsPerf](//jsperf.com/converting-arguments-to-an-array/7))
 
     ```javascript
     var len = items.length;
     var itemsCopy = [];
     var i;
 
+    // good
+    itemsCopy = items.slice();
+
     // bad
     for (i = 0; i < len; i++) {
         itemsCopy[i] = items[i];
     }
-
-    // good
-    itemsCopy = items.slice();
     ```
 
-  - To convert an array-like object to an array, use Array#slice.
+- To convert an array-like object to an array, use Array#slice.
 
     ```javascript
     function trigger() {
@@ -209,7 +208,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     }
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='strings'>Strings</a>
