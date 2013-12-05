@@ -387,37 +387,37 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 <a name='properties'>Properties</a>
 -----------------------------------
 
-  - Use dot notation when accessing properties.
+- Use dot notation when accessing properties.
 
     ```javascript
     var luke = {
         jedi: true,
         age: 28
     };
-
-    // bad
-    var isJedi = luke['jedi'];
 
     // good
     var isJedi = luke.jedi;
+
+    // bad
+    var isJedi = luke['jedi'];
     ```
 
-  - Use subscript notation `[]` when accessing properties with a variable.
+- Use subscript notation (`[]`) when accessing properties with a variable.
 
-    ```javascript
-    var luke = {
-        jedi: true,
-        age: 28
-    };
+        ```javascript
+        var luke = {
+            jedi: true,
+            age: 28
+        };
 
-    function getProp(prop) {
-        return luke[prop];
-    }
+        function getProp(prop) {
+            return luke[prop];
+        }
 
-    var isJedi = getProp('jedi');
-    ```
+        var isJedi = getProp('jedi');
+        ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='variables'>Variables</a>
