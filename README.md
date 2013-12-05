@@ -624,8 +624,9 @@ For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygo
 <a name='conditionals'>Conditional Expressions & Equality</a>
 -------------------------------------------------------------
 
-  - Use `===` and `!==` over `==` and `!=`.
-  - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
+- Use `===` and `!==` over `==` and `!=`.
+
+- Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
 
     + **Objects** evaluate to **true**
     + **Undefined** evaluates to **false**
@@ -641,21 +642,16 @@ For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygo
     }
     ```
 
-  - Use shortcuts.
+- Use shortcuts.
 
     ```javascript
-    // bad
-    if (name !== '') {
-        // ...stuff...
-    }
-
     // good
     if (name) {
         // ...stuff...
     }
 
     // bad
-    if (collection.length > 0) {
+    if (name !== '') {
         // ...stuff...
     }
 
@@ -663,23 +659,24 @@ For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygo
     if (collection.length) {
         // ...stuff...
     }
+
+    // bad
+    if (collection.length > 0) {
+        // ...stuff...
+    }
     ```
 
-  - For more information see [Truth Equality and JavaScript](//javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
+For more information see [Truth Equality and JavaScript](//javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll.
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='blocks'>Blocks</a>
 ---------------------------
 
-  - Use braces with all multi-line blocks.
+- Use braces with all multi-line blocks.
 
     ```javascript
-    // bad
-    if (test)
-        return false;
-
     // good
     if (test) return false;
 
@@ -688,16 +685,20 @@ For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygo
         return false;
     }
 
-    // bad
-    function() { return false; }
-
     // good
     function() {
         return false;
     }
+
+    // bad
+    if (test)
+        return false;
+
+    // bad
+    function() { return false; }
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='comments'>Comments</a>
