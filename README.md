@@ -404,18 +404,18 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 
 - Use subscript notation (`[]`) when accessing properties with a variable.
 
-        ```javascript
-        var luke = {
-            jedi: true,
-            age: 28
-        };
+    ```javascript
+    var luke = {
+        jedi: true,
+        age: 28
+    };
 
-        function getProp(prop) {
-            return luke[prop];
-        }
+    function getProp(prop) {
+        return luke[prop];
+    }
 
-        var isJedi = getProp('jedi');
-        ```
+    var isJedi = getProp('jedi');
+    ```
 
 [[↑ back to top]](#TOC)
 
@@ -423,34 +423,40 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 <a name='variables'>Variables</a>
 ---------------------------------
 
-  - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+- Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
 
     ```javascript
-    // bad
-    superPower = new SuperPower();
-
     // good
     var superPower = new SuperPower();
+
+    // bad
+    superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration per variable and declare each variable on a newline.
+- Use one `var` declaration per variable and declare each variable on a newline.
 
     ```javascript
+    // good
+    var items = getItems();
+    var goSportsTeam = true;
+    var dragonball = 'z';
 
     // bad
     var items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
+    ```
 
+- Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+
+    ```javascript
     // good
     var items = getItems();
     var goSportsTeam = true;
-    var dragonball = 'z';
-    ```
+    var dragonball;
+    var length;
+    var i;
 
-  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
-
-    ```javascript
     // bad
     var i, len, dragonball,
         items = getItems(),
@@ -462,34 +468,11 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     var dragonball;
     var goSportsTeam = true;
     var len;
-
-    // good
-    var items = getItems();
-    var goSportsTeam = true;
-    var dragonball;
-    var length;
-    var i;
     ```
 
-  - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+- Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
 
     ```javascript
-    // bad
-    function() {
-        test();
-        console.log('doing stuff..');
-
-        //..other stuff..
-
-        var name = getName();
-
-        if (name === 'test') {
-            return false;
-        }
-
-        return name;
-    }
-
     // good
     function() {
         var name = getName();
@@ -508,28 +491,44 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 
     // bad
     function() {
+        test();
+        console.log('doing stuff..');
+
+        //..other stuff..
+
         var name = getName();
 
+        if (name === 'test') {
+            return false;
+        }
+
+        return name;
+    }
+
+    // good
+    function() {
         if (!arguments.length) {
             return false;
         }
+
+        var name = getName();
 
         return true;
     }
 
-    // good
+    // bad
     function() {
+        var name = getName();
+
         if (!arguments.length) {
             return false;
         }
-
-        var name = getName();
 
         return true;
     }
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='hoisting'>Hoisting</a>
