@@ -1099,23 +1099,30 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 <a name='naming-conventions'>Naming Conventions</a>
 ---------------------------------------------------
 
-  - Avoid single letter names. Be descriptive with your naming.
+- Avoid single letter names. Be descriptive with your naming.
 
     ```javascript
-    // bad
-    function q() {
-        // ...stuff...
-    }
-
     // good
     function query() {
         // ..stuff..
     }
+
+    // bad
+    function q() {
+        // ...stuff...
+    }
     ```
 
-  - Use camelCase when naming objects, functions, and instances
+- Use camelCase when naming objects, functions, and instances
 
     ```javascript
+    // good
+    var thisIsMyObject = {};
+    function thisIsMyFunction() {};
+    var user = new User({
+        name: 'Bob Parr'
+    });
+
     // bad
     var OBJEcttsssss = {};
     var this_is_my_object = {};
@@ -1123,27 +1130,11 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var u = new user({
         name: 'Bob Parr'
     });
-
-    // good
-    var thisIsMyObject = {};
-    function thisIsMyFunction() {};
-    var user = new User({
-        name: 'Bob Parr'
-    });
     ```
 
-  - Use PascalCase when naming constructors or classes
+- Use PascalCase when naming constructors or classes
 
     ```javascript
-    // bad
-    function user(options) {
-        this.name = options.name;
-    }
-
-    var bad = new user({
-        name: 'nope'
-    });
-
     // good
     function User(options) {
         this.name = options.name;
@@ -1152,22 +1143,39 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var good = new User({
         name: 'yup'
     });
+
+    // bad
+    function user(options) {
+        this.name = options.name;
+    }
+
+    var bad = new user({
+        name: 'nope'
+    });
     ```
 
-  - Use a leading underscore `_` when naming private properties
+- Use a leading underscore `_` when naming private properties
 
     ```javascript
+    // good
+    this._firstName = 'Panda';
+
     // bad
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
-
-    // good
-    this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+- When saving a reference to `this` use `_this`.
 
     ```javascript
+    // good
+    function() {
+        var _this = this;
+        return function() {
+            console.log(_this);
+        };
+    }
+
     // bad
     function() {
         var self = this;
@@ -1183,31 +1191,23 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
             console.log(that);
         };
     }
-
-    // good
-    function() {
-        var _this = this;
-        return function() {
-            console.log(_this);
-        };
-    }
     ```
 
-  - Name your functions. This is helpful for stack traces.
+- Name your functions. This is helpful for stack traces.
 
     ```javascript
-    // bad
-    var log = function(msg) {
-        console.log(msg);
-    };
-
     // good
     var log = function log(msg) {
         console.log(msg);
     };
+
+    // bad
+    var log = function(msg) {
+        console.log(msg);
+    };
     ```
 
-    [[↑ back to top]](#TOC)
+[[↑ back to top]](#TOC)
 
 
 <a name='accessors'>Accessors</a>
