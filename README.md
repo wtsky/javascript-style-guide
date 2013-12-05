@@ -46,7 +46,7 @@ REI JavaScript Style Guide
 <a name='inspiration'>Inspiration</a>
 -------------------------------------
 
-**PEP-020**: [The Zen of Python](//www.python.org/dev/peps/pep-0020/)
+From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 
     Beautiful is better than ugly.
     Explicit is better than implicit.
@@ -110,35 +110,40 @@ console.log(foo[0], bar[0]); // => 9, 9
 <a name='objects'>Objects</a>
 -----------------------------
 
-  - Use the literal syntax for object creation.
+- Use the literal syntax for object creation.
 
     ```javascript
-    // bad
-    var item = new Object();
-
     // good
     var item = {};
+
+    // bad
+    var item = new Object();
     ```
 
-  - Don't use [reserved words](//es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](//github.com/airbnb/javascript/issues/61)
+- Don't use [reserved words](//es5.github.io/#x7.6.1) as keys. It won't work in IE8. ([More info](//github.com/airbnb/javascript/issues/61))
 
     ```javascript
-    // bad
-    var superman = {
-        default: { clark: 'kent' },
-        private: true
-    };
-
     // good
     var superman = {
         defaults: { clark: 'kent' },
         hidden: true
     };
+
+    // bad
+    var superman = {
+        default: { clark: 'kent' },
+        private: true
+    };
     ```
 
-  - Use readable synonyms in place of reserved words.
+- Use readable synonyms in place of reserved words.
 
     ```javascript
+    // good
+    var superman = {
+        type: 'alien'
+    };
+
     // bad
     var superman = {
         class: 'alien'
@@ -148,13 +153,9 @@ console.log(foo[0], bar[0]); // => 9, 9
     var superman = {
         klass: 'alien'
     };
-
-    // good
-    var superman = {
-        type: 'alien'
-    };
     ```
-    [[↑ back to top]](#TOC)
+
+[[↑ back to top]](#TOC)
 
 
 <a name='arrays'>Arrays</a>
