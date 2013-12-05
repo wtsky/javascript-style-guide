@@ -33,7 +33,6 @@ REI JavaScript Style Guide
 1. [Modules](#modules)
 1. [jQuery](#jquery)
 1. [ES5 Compatibility](#es5)
-1. [Testing](#testing)
 1. [Performance](#performance)
 1. [Resources](#resources)
 1. [In the Wild](#in-the-wild)
@@ -1483,20 +1482,6 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 [[↑ back to top]](#TOC)
 
 
-<a name='testing'>Testing</a>
------------------------------
-
-- **Yup.**
-
-    ```javascript
-    function() {
-        return true;
-    }
-    ```
-
-[[↑ back to top]](#TOC)
-
-
 <a name='performance'>Performance</a>
 -------------------------------------
 
@@ -1598,7 +1583,7 @@ This is a list of organizations that are using the [original airbnb JavaScript s
 - **Zillow**: [zillow/javascript](//github.com/zillow/javascript)
 - **ZocDoc**: [ZocDoc/javascript](//github.com/ZocDoc/javascript)
 
-If you use this version of the style guide, send us a pull request, and we'll start a list.
+If you use this fork of the style guide, send us a pull request, and we'll start a list.
 
 
 <a name='translation'>Translation</a>
