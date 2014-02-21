@@ -67,6 +67,10 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
     Namespaces are one honking great idea -- let's do more of those!
 
 
+From [Steve Kwan](#kwan-best-practices):
+
+    However, I don't write my code to impress the parser. I write it for the people after me who will have to understand it. And I personally find code much easier to understand if variable declarations occur close to the context where they are being used.
+
 <a name='types'>Types</a>
 -------------------------
 
@@ -1528,6 +1532,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
 - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
 - <a name='nfe-demystified'>[Named function expressions demystified](http://kangax.github.io/nfe/)</a> - Jurly "kangax" Zaytsev
+- <a name='kwan-best-practices'>[Steve Kwan's JavaScript Best Practices](//github.com/stevekwan/best-practices/blob/master/javascript/best-practices.md) - Steve Kwan
 
 **Books**
 
