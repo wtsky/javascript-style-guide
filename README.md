@@ -1623,6 +1623,7 @@ Translations of the [original airbnb JavaScript style guide][airbnb-styleguide] 
 (The MIT License)
 
 Copyright (c) 2013-2014 REI
+
 Copyright (c) 2012 Airbnb
 
 Permission is hereby granted, free of charge, to any person obtaining
