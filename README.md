@@ -69,7 +69,7 @@ From [PEP-20: The Zen of Python](//www.python.org/dev/peps/pep-0020/):
 
 From [Steve Kwan](#kwan-best-practices):
 
-    However, I don't write my code to impress the parser. I write it for the people after me who will have to understand it. And I personally find code much easier to understand if variable declarations occur close to the context where they are being used.
+> However, I don't write my code to impress the parser. I write it for the people after me who will have to understand it.
 
 <a name='types'>Types</a>
 -------------------------
