@@ -1553,14 +1553,10 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
 - [DailyJS](//dailyjs.com/)
 - [JavaScript Weekly](//javascriptweekly.com/)
-- [JavaScript, JavaScript...](//javascriptweblog.wordpress.com/)
 - [Bocoup Weblog](//weblog.bocoup.com/)
-- [Adequately Good](//www.adequatelygood.com/)
 - [NCZOnline](//www.nczonline.net/)
 - [Perfection Kills](//perfectionkills.com/)
 - [Ben Alman](//benalman.com/)
-- [Dmitry Baranovskiy](//dmitry.baranovskiy.com/)
-- [Dustin Diaz](//dustindiaz.com/)
 - [nettuts](//net.tutsplus.com/?s=javascript)
 
 [[↑ back to top]](#TOC)
