@@ -88,7 +88,7 @@ From [Steve Kwan](#kwan-best-practices):
 
     bar = 9;
 
-    console.log(foo, bar); // => 1, 9
+    console.log( foo, bar ); // => 1, 9
     ```
 
 - **Complex:** When you access a complex type you work on a reference to its value.
@@ -98,12 +98,12 @@ From [Steve Kwan](#kwan-best-practices):
     + `function`
 
     ```javascript
-    var foo = [1, 2];
+    var foo = [ 1, 2 ];
     var bar = foo;
 
-    bar[0] = 9;
+    bar[ 0 ] = 9;
 
-    console.log(foo[0], bar[0]); // => 9, 9
+    console.log( foo[ 0 ], bar[ 0 ] ); // => 9, 9
     ```
 
 [[↑ back to top]](#TOC)
@@ -182,7 +182,7 @@ From [Steve Kwan](#kwan-best-practices):
     someStack.push( 'abracadabra' );
 
     // bad
-    someStack[someStack.length] = 'abracadabra';
+    someStack[ someStack.length ] = 'abracadabra';
     ```
 
 - When you need to copy an array use Array#slice. ([jsPerf](//jsperf.com/converting-arguments-to-an-array/7))
@@ -196,8 +196,8 @@ From [Steve Kwan](#kwan-best-practices):
     itemsCopy = items.slice();
 
     // bad
-    for (i = 0; i < len; i++) {
-        itemsCopy[i] = items[i];
+    for ( i = 0; i < len; i++ ) {
+        itemsCopy[ i ] = items[ i ];
     }
     ```
 
@@ -286,7 +286,7 @@ From [Steve Kwan](#kwan-best-practices):
         items = [];
 
         for ( i = 0; i < length; i++ ) {
-          items[i] = messages[i].message;
+          items[ i ] = messages[ i ].message;
         }
 
         return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
@@ -325,7 +325,7 @@ From [Steve Kwan](#kwan-best-practices):
 
     // immediately-invoked function expression (IIFE)
     (function () {
-        console.log('Welcome to the Internet. Please follow me.');
+        console.log( 'Welcome to the Internet. Please follow me.' );
     })();
     ```
 
@@ -335,15 +335,15 @@ From [Steve Kwan](#kwan-best-practices):
     // good
     var test;
     if ( currentUser ) {
-        test = function test() {
-            console.log('Yup.');
+        test = function test () {
+            console.log( 'Yup.' );
         };
     }
 
     // bad
     if ( currentUser ) {
-        function test() {
-            console.log('Nope.');
+        function test () {
+            console.log( 'Nope.' );
         }
     }
     ```
@@ -401,7 +401,7 @@ From [Steve Kwan](#kwan-best-practices):
     var isJedi = luke.jedi;
 
     // bad
-    var isJedi = luke['jedi'];
+    var isJedi = luke[ 'jedi' ];
     ```
 
 - Use subscript notation (`[]`) when accessing properties with a variable.
@@ -413,7 +413,7 @@ From [Steve Kwan](#kwan-best-practices):
     };
 
     function getProp ( prop ) {
-        return luke[prop];
+        return luke[ prop ];
     }
 
     var isJedi = getProp( 'jedi' );
@@ -480,7 +480,7 @@ From [Steve Kwan](#kwan-best-practices):
         var name = getName();
 
         test();
-        console.log('doing stuff..');
+        console.log( 'doing stuff..' );
 
         //..other stuff..
 
@@ -494,7 +494,7 @@ From [Steve Kwan](#kwan-best-practices):
     // bad
     function () {
         test();
-        console.log('doing stuff..');
+        console.log( 'doing stuff..' );
 
         //..other stuff..
 
@@ -542,7 +542,7 @@ From [Steve Kwan](#kwan-best-practices):
     // we know this wouldn't work (assuming there
     // is no notDefined global variable)
     function example () {
-        console.log(notDefined); // => throws a ReferenceError
+        console.log( notDefined ); // => throws a ReferenceError
     }
 
     // creating a variable declaration after you
@@ -550,7 +550,7 @@ From [Steve Kwan](#kwan-best-practices):
     // variable hoisting. Note: the assignment
     // value of `true` is not hoisted.
     function example () {
-        console.log(declaredButNotAssigned); // => undefined
+        console.log( declaredButNotAssigned ); // => undefined
         var declaredButNotAssigned = true;
     }
 
@@ -559,7 +559,7 @@ From [Steve Kwan](#kwan-best-practices):
     // Which means our example could be rewritten as:
     function example () {
         var declaredButNotAssigned;
-        console.log(declaredButNotAssigned); // => undefined
+        console.log( declaredButNotAssigned ); // => undefined
         declaredButNotAssigned = true;
     }
     ```
@@ -568,12 +568,12 @@ From [Steve Kwan](#kwan-best-practices):
 
     ```javascript
     function example () {
-        console.log(anonymous); // => undefined
+        console.log( anonymous ); // => undefined
 
         anonymous(); // => TypeError anonymous is not a function
 
         var anonymous = function () {
-            console.log('anonymous function expression');
+            console.log( 'anonymous function expression' );
         };
     }
     ```
@@ -582,26 +582,26 @@ From [Steve Kwan](#kwan-best-practices):
 
     ```javascript
     function example () {
-        console.log(named); // => undefined
+        console.log( named ); // => undefined
 
         named(); // => TypeError named is not a function
 
         superPower(); // => ReferenceError superPower is not defined
 
         var named = function superPower () {
-            console.log('Flying');
+            console.log( 'Flying' );
         };
     }
 
     // the same is true when the function name
     // is the same as the variable name.
     function example () {
-        console.log(named); // => undefined
+        console.log( named ); // => undefined
 
         named(); // => TypeError named is not a function
 
         var named = function named () {
-            console.log('named');
+            console.log( 'named' );
         }
     }
     ```
@@ -613,7 +613,7 @@ From [Steve Kwan](#kwan-best-practices):
         superPower(); // => Flying
 
         function superPower () {
-            console.log('Flying');
+            console.log( 'Flying' );
         }
     }
     ```
@@ -638,7 +638,7 @@ For more information refer to [JavaScript Scoping & Hoisting](//www.adequatelygo
     + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
 
     ```javascript
-    if ( [0] ) {
+    if ( [ 0 ] ) {
         // true
         // An array is an object, objects evaluate to true
     }
@@ -761,7 +761,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     // good
     function getType () {
-        console.log('fetching type...');
+        console.log( 'fetching type...' );
 
         // set the default type to 'no type'
         var type = this._type || 'no type';
@@ -774,7 +774,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     // bad
     function getType () {
-        console.log('fetching type...');
+        console.log( 'fetching type...' );
         // set the default type to 'no type'
         var type = this._type || 'no type';
 
@@ -843,30 +843,30 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     // good
-    dog.set('attr', {
-        age: '1 year',
-        breed: 'Bernese Mountain Dog'
+    dog.set( 'attr', {
+        age:    '1 year',
+        breed:  'Bernese Mountain Dog'
     });
 
     // good
     function test () {
-        console.log('test');
+        console.log( 'test' );
     }
 
     // bad
-    function test(){
-        console.log('test');
+    function test () {
+        console.log( 'test' );
     }
 
     // bad
-    dog.set('attr',{
-        age: '1 year',
-        breed: 'Bernese Mountain Dog'
-    });
+    dog.set( 'attr', {
+        age:    '1 year',
+        breed:  'Bernese Mountain Dog'
+    } );
 
     ```
 
-- **Breathing Room:** Place 1 space before and after parens.
+- **Breathing Room:** Place 1 space inside and outside parens of expressions, and 1 space inside of calls and subs.
 
     ```javascript
     // good
@@ -878,6 +878,10 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
         ...
     };
 
+    f( 1, 2, 3 );
+    
+    a[ 0 ];
+
     // bad
     for(var i = 0; i < foo.length; ++i) {
         ...
@@ -886,58 +890,58 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     var f = function(a, b, c) {
         ...
     };
-
-    // except when invoking a function
-    // good
-    f( 1, 2, 3 );
+    
+    f(1, 2, 3);
+    
+    a[0];
     ```
 
 - Place an empty newline at the end of the file.
 
     ```javascript
     // good
-    (function ( global ) {
+    ( function ( global ) {
         // ...stuff...
-    })( this );
+    } )( this );
 
     ```
 
     ```javascript
     // bad
-    (function ( global ) {
+    ( function ( global ) {
         // ...stuff...
-    })( this );
+    } )( this );
     ```
 
 - Use indentation when making long method chains.
 
     ```javascript
     // good
-    $('#items')
-        .find('.selected')
+    $( '#items' )
+        .find( '.selected' )
             .highlight()
             .end()
-        .find('.open')
+        .find( '.open' )
             .updateCount();
 
     // bad
-    $('#items').find('.selected').highlight().end().find('.open').updateCount();
+    $( '#items' ).find( '.selected' ).highlight().end().find( '.open' ).updateCount();
 
     // good
-    var leds = stage.selectAll('.led')
-            .data(data)
-        .enter().append('svg:svg')
-            .class('led', true)
-            .attr('width',  (radius + margin) * 2)
-        .append('svg:g')
-            .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-            .call(tron.led);
+    var leds = stage.selectAll( '.led' )
+            .data( data )
+        .enter().append( 'svg:svg' )
+            .class( 'led', true)
+            .attr( 'width',  ( r adius + margin ) * 2 )
+        .append( 'svg:g' )
+            .attr( 'transform', 'translate(' + ( radius + margin ) + ',' + ( radius + margin ) + ')' )
+            .call( tron.led ); 
 
     // bad
-    var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
+    var leds = stage.selectAll( '.led' ).data( data ).enter().append( 'svg:svg' ).class( 'led', true )
         .attr('width',  (radius + margin) * 2).append('svg:g')
-        .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
-        .call(tron.led);
+        .attr( 'transform', 'translate(' + ( radius + margin ) + ',' + ( radius + margin ) + ')' )
+        .call( tron.led );
     ```
 
 [[↑ back to top]](#TOC)
@@ -951,9 +955,9 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     var hero = {
-        firstName: 'Bob',
-        lastName: 'Parr',
-        heroName: 'Mr. Incredible',
+        firstName:  'Bob',
+        lastName:   'Parr',
+        heroName:   'Mr. Incredible',
         superPower: 'strength'
     };
 
@@ -1004,22 +1008,22 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     // good
-    ;(function () {
+    ;( function () {
         var name = 'Skywalker';
         return name;
-    })();
+    } )();
 
     // good
-    (function () {
+    ( function () {
         var name = 'Skywalker';
         return name;
-    })();
+    } )();
 
     // bad
-    (function () {
+    ( function () {
         var name = 'Skywalker'
         return name
-    })()
+    } )()
     ```
 
 [[↑ back to top]](#TOC)
@@ -1124,18 +1128,18 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     var thisIsMyObject = {};
-    function thisIsMyFunction() {};
-    var user = new User({
+    function thisIsMyFunction () {};
+    var user = new User( {
         name: 'Bob Parr'
-    });
+    } );
 
     // bad
     var OBJEcttsssss = {};
     var this_is_my_object = {};
     function c() {};
-    var u = new user({
+    var u = new user( {
         name: 'Bob Parr'
-    });
+    } );
     ```
 
 - Use PascalCase when naming constructors or classes
@@ -1146,18 +1150,18 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
         this.name = options.name;
     }
 
-    var good = new User({
+    var good = new User( {
         name: 'yup'
-    });
+    } );
 
     // bad
     function user ( options ) {
         this.name = options.name;
     }
 
-    var bad = new user({
+    var bad = new user( {
         name: 'nope'
-    });
+    } );
     ```
 
 - Use a leading underscore `_` when naming private properties
@@ -1178,7 +1182,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     function () {
         var _this = this;
         return function () {
-            console.log(_this);
+            console.log( _this );
         };
     }
 
@@ -1186,7 +1190,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     function () {
         var self = this;
         return function () {
-            console.log(self);
+            console.log( self );
         };
     }
 
@@ -1194,7 +1198,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     function () {
         var that = this;
         return function () {
-            console.log(that);
+            console.log( that );
         };
     }
     ```
@@ -1204,12 +1208,12 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
     ```javascript
     // good
     var log = function log ( msg ) {
-        console.log(msg);
+        console.log( msg );
     };
 
     // bad
     var log = function ( msg ) {
-        console.log(msg);
+        console.log( msg );
     };
     ```
 
@@ -1254,17 +1258,17 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     function Jedi ( options ) {
-        options || (options = {});
+        options || ( options = {} );
         var lightsaber = options.lightsaber || 'blue';
         this.set( 'lightsaber', lightsaber );
     }
 
     Jedi.prototype.set = function ( key, val ) {
-        this[key] = val;
+        this[ key ] = val;
     };
 
     Jedi.prototype.get = function ( key ) {
-        return this[key];
+        return this[ key ];
     };
     ```
 
@@ -1278,26 +1282,26 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     function Jedi () {
-        console.log('new jedi');
+        console.log( 'new jedi' );
     }
 
     // good
     Jedi.prototype.fight = function fight () {
-        console.log('fighting');
+        console.log( 'fighting' );
     };
 
     Jedi.prototype.block = function block () {
-        console.log('blocking');
+        console.log( 'blocking' );
     };
 
     // bad
     Jedi.prototype = {
         fight: function fight () {
-            console.log('fighting');
+            console.log( 'fighting' );
         },
 
         block: function block () {
-            console.log('blocking');
+            console.log( 'blocking' );
         }
     };
     ```
@@ -1341,7 +1345,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     function Jedi ( options ) {
-        options || (options = {});
+        options || ( options = {} );
         this.name = options.name || 'no name';
     }
 
@@ -1427,10 +1431,10 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
     ```javascript
     // good
-    var $sidebar = $('.sidebar');
+    var $sidebar = $( '.sidebar' );
 
     // bad
-    var sidebar = $('.sidebar');
+    var sidebar = $( '.sidebar' );
     ```
 
 - Cache jQuery lookups.
@@ -1443,41 +1447,41 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 
         // ...stuff...
 
-        $sidebar.css({
+        $sidebar.css( {
             'background-color': 'pink'
-        });
+        } );
     }
 
     // bad
     function setSidebar () {
-        $('.sidebar').hide();
+        $( '.sidebar' ).hide();
 
         // ...stuff...
 
-        $('.sidebar').css({
+        $( '.sidebar' ).css( {
             'background-color': 'pink'
-        });
+        } );
     }
     ```
 
-- For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](//jsperf.com/jquery-find-vs-context-sel/16)
+- For DOM queries use Cascading `$( '.sidebar ul' )` or parent > child `$( '.sidebar > ul' )`. [jsPerf](//jsperf.com/jquery-find-vs-context-sel/16)
 - Use `find` with scoped jQuery object queries.
 
     ```javascript
     // good
-    $('.sidebar ul').hide();
+    $( '.sidebar ul' ).hide();
 
     // good
-    $('.sidebar > ul').hide();
+    $( '.sidebar > ul' ).hide();
 
     // good
-    $sidebar.find('ul');
+    $sidebar.find( 'ul' );
 
     // bad
-    $('ul', '.sidebar').hide();
+    $( 'ul', '.sidebar' ).hide();
 
     // bad
-    $('.sidebar').find('ul').hide();
+    $( '.sidebar' ).find( 'ul' ).hide();
     ```
 
 [[↑ back to top]](#TOC)
