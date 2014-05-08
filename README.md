@@ -1552,7 +1552,8 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 - [Human JavaScript](//humanjavascript.com/) - Henrik Joreteg
 - [Superhero.js](//superherojs.com/) - Kim Joar Bekkelund, Mads Mobæk, & Olav Bjorkoy
 - [JSBooks](//jsbooks.revolunet.com/)
-- [Refactoring Improving the Design of Existing Code] (//www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/) - Martin Fowler   Note: not JS, but great practices
+- [Refactoring Improving the Design of Existing Code](http://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/) - Martin Fowler   Note: not JS, but great practices
+- [JavaScript Design Patterns](http://addyosmani.com/resources/essentialjsdesignpatterns/book/) - Addy Osmani
 
 **Blogs**
 
