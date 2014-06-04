@@ -1,5 +1,6 @@
-REI JavaScript Style Guide
-==========================
+# REI Script Style Guide
+
+> Code style guide for JavaScript at REI
 
 *A mostly reasonable approach to JavaScript, lightly modified from
 [Airbnb's excellent style guide][airbnb-js-styleguide]*
