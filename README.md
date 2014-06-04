@@ -1,4 +1,4 @@
-# REI Script Style Guide
+# REI JavaScript Style Guide
 
 > Code style guide for JavaScript at REI
 
