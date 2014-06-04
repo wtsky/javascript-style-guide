@@ -2,8 +2,7 @@
 
 > Code style guide for JavaScript at REI
 
-*A mostly reasonable approach to JavaScript, lightly modified from
-[Airbnb's excellent style guide][airbnb-js-styleguide]*
+*A mostly reasonable approach to JavaScript, forked and modified from [Airbnb's excellent JavaScript style guide][airbnb-js-styleguide]*
 
 [airbnb-js-styleguide]: //github.com/airbnb/javascript
 
