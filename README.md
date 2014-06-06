@@ -449,27 +449,42 @@ From [Steve Kwan](#kwan-best-practices):
         dragonball = 'z';
     ```
 
+- Initialize unassigned variables with `null`. This distinguishes declared but unassigned variables from `undefined` variables. E.g., given the declaration `var foo;`, a reference `foo`, a typo `fo0`, or any variable that does not exist all evaluate to `undefined`.
+
+    ```javascript
+    // good
+    var dragonball = null;
+    var length = null;
+    var i = null;
+
+    // bad
+    var dragonball;
+    var length;
+    var i;
+    ```
+  
+
 - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
 
     ```javascript
     // good
     var items = getItems();
     var goSportsTeam = true;
-    var dragonball;
-    var length;
-    var i;
+    var dragonball = null;
+    var length = null;
+    var i = null;
 
     // bad
-    var i, len, dragonball,
+    var i = null, len = null, dragonball = null,
         items = getItems(),
         goSportsTeam = true;
 
     // still bad
-    var i;
+    var i = null;
     var items = getItems();
-    var dragonball;
+    var dragonball = null;
     var goSportsTeam = true;
-    var len;
+    var len = null;
     ```
 
 - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
