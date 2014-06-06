@@ -449,7 +449,7 @@ From [Steve Kwan](#kwan-best-practices):
         dragonball = 'z';
     ```
 
-- Initialize unassigned variables with `null`. This distinguishes declared but unassigned variables from `undefined` variables. E.g., given the declaration `var foo;`, a reference `foo`, a typo `fo0`, or any variable that does not exist all evaluate to `undefined`.
+- Initialize unassigned variables with `null`. This 1, more explicit, and 2, distinguishes declared but unassigned properties of objects from `undefined` properties. E.g., given the object `o` and the declaration `o.foo;`, a reference `o.foo`, a typo `o.fo0`, or any property that does not exist all evaluate to `undefined`.
 
     ```javascript
     // good
