@@ -1,11 +1,11 @@
-# REI JavaScript Style Guide
+# White Sky JavaScript Style Guide
 
-> Code style guide for JavaScript at REI
+> Code style guide for JavaScript at White Sky
 
-*A mostly reasonable approach to JavaScript, forked and modified from [Airbnb's excellent JavaScript style guide][airbnb-js-styleguide]*
+*A mostly reasonable approach to JavaScript, forked and modified from [REI's excellent JavaScript style guide][rei-js-styleguide]*, which itself was forked and modified from [Airbnb's most excellent JavaScript style guide][airbnb-js-styleguide]*
 
+[rei-js-styleguide]: //github.com/reidev/js-style-guide
 [airbnb-js-styleguide]: //github.com/airbnb/javascript
-
 
 <a name='TOC'>Table of Contents</a>
 -----------------------------------
@@ -1571,7 +1571,7 @@ For more information see [Truth Equality and JavaScript](//javascriptweblog.word
 <a name='in-the-wild'>In the Wild</a>
 -------------------------------------
 
-This is a list of organizations that are using the [original airbnb JavaScript style guide][airbnb-styleguide]:
+This is a list of organizations that are using the [original airbnb JavaScript style guide][airbnb-js-styleguide]:
 
 - **Aan Zee**: [AanZee/javascript](//github.com/AanZee/javascript)
 - **Airbnb**: [airbnb/javascript](//github.com/airbnb/javascript)
@@ -1601,7 +1601,7 @@ If you use this fork of the style guide, send us a pull request, and we'll start
 <a name='translation'>Translation</a>
 -------------------------------------
 
-Translations of the [original airbnb JavaScript style guide][airbnb-styleguide] are available in the following languages:
+Translations of the [original airbnb JavaScript style guide][airbnb-js-styleguide] are available in the following languages:
 
 - :de: **German**: [timofurrer/javascript-style-guide](//github.com/timofurrer/javascript-style-guide)
 - :jp: **Japanese**: [mitsuruog/javacript-style-guide](//github.com/mitsuruog/javacript-style-guide)
@@ -1623,6 +1623,8 @@ Translations of the [original airbnb JavaScript style guide][airbnb-styleguide] 
 -----------------------------
 
 (The MIT License)
+
+Copyright (c) 2014 White Sky
 
 Copyright (c) 2013-2014 REI
 
@@ -1648,6 +1650,3 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 [[↑ back to top]](#TOC)
-
-
-[airbnb-styleguide]:https://github.com/airbnb/javascript
